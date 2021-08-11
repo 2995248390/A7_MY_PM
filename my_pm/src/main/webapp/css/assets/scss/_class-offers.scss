@@ -1,0 +1,70 @@
+.class-offer-area{
+    padding-left:50px;
+    padding-right: 50px;
+   
+    @media #{$md}{
+        padding-left:0px;
+        padding-right: 0px;
+    }
+    @media #{$sm}{
+        padding-left:0px;
+        padding-right: 0px;
+    }
+    @media #{$xs}{
+        padding-left:0px;
+        padding-right: 0px;
+    }
+    .properties{
+        &__card{
+             @include transition(.4s);
+        }
+        &__img{
+            img{
+                width: 100%;
+                position: relative;
+            }
+        }
+        &__caption{
+            padding: 26px 18px 8px 22px;
+            @media #{$sm}{
+                padding: 0;
+                padding-top: 20px;
+            }
+            @media #{$xs}{
+                padding: 0;
+                padding-top: 20px;
+            }
+            h3{
+                font-size: 24px;
+                font-weight: 400;
+                margin-bottom: 10px;
+                @include transition(.4s);
+                line-height: 1.5;
+                @media #{$lg}{
+                    font-size: 16px;
+                }
+                @media #{$sm}{
+                    font-size: 17px;
+                }
+                @media #{$xs}{
+                    font-size: 17px;
+                }
+                a:hover,.properties__card{
+                    color:$theme-color;
+                }
+            }
+        }
+        &:hover{
+            .properties__caption{
+                h3{
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+	
+}
+
+
+
+

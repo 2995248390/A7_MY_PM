@@ -1,0 +1,303 @@
+// visit Three
+.visit-three{
+    background-color:#F2FBF9;
+    display: flex;
+    align-items: center;
+    @media #{$lg}{
+      display: block;
+    }
+    @media #{$md}{
+      display: block;
+    }
+    @media #{$xs}{
+      display: block;
+    }
+    @media #{$sm}{
+      display: block;
+    }
+
+    // left Contents
+    .tailor-details{
+        width: 74%;
+        padding: 20px 40px 20px 268px;
+        @media #{$large1}{
+            padding: 20px 40px 20px 50px;
+        }
+        @media #{$large2}{
+            padding: 20px 40px 20px 50px;
+        }
+        @media #{$large4}{
+            padding: 20px 40px 20px 339px;
+        }
+        @media #{$large5}{
+            padding: 20px 40px 20px 480px;
+        }
+        @media #{$large6}{
+            padding: 20px 40px 20px 550px;
+        }
+
+
+        @media #{$large1}{
+            width: 50%;
+        }
+        @media #{$large2}{
+            width: 50%;
+        }
+        @media #{$lg}{
+            width: 90%;
+            padding: 50px 20px 50px 50px;
+        }
+        @media #{$md}{
+            width: 90%;
+            padding: 50px 30px;
+        }
+        @media #{$sm}{
+            width: 100%;
+            padding: 50px 30px;
+        }
+        @media #{$xs}{
+            width: 100%;
+            padding: 50px 30px;
+        }
+
+        .single-gallery{
+            @include transition(.4s);
+            background: none;
+            border: 1px solid rgba(93, 100, 106,.2);
+            padding: 30px 30px 10px 30px;
+            
+            // Caption
+            .thumb-content-box {
+                @media #{$sm}{
+                    flex-wrap: wrap;
+                 }
+                @media #{$xs}{
+                    flex-wrap: wrap;
+                 }
+                 .room-img{
+                    @media #{$sm}{
+                        margin-bottom: 30px;
+                     }
+                    @media #{$xs}{
+                        margin-bottom: 30px;
+                     }
+                 }
+                .thumb-content {
+                    @include transition(.4s);
+                    bottom: -58px;
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    width: 100%;
+                    span{
+                        color: #fff;
+                        text-transform: uppercase;
+                        font-size: 16px;
+                        margin-bottom: 20px;
+                        display: block;
+                    }
+                    h3 {
+                        @include transition(.4s);
+                        color: $heading-color;
+                        font-weight: 400;
+                        font-size: 20px;
+                        margin-bottom: 13px;
+                        font-weight: 700;
+                        @media #{$md}{
+                            br{
+                                display: none;
+                            }
+                        }
+                        @media #{$sm}{
+                            br{
+                                display: none;
+                            }
+                        }
+                        @media #{$xs}{
+                            font-size: 21px;
+                            br{
+                                display: none;
+                            }
+                        }
+                    }
+                    p{
+                        color: $heading-color;
+                        font-size: 16px;
+                        line-height: 1.5;
+                    }
+                    a {
+                        border: 0;
+                        color: $theme-color;
+                        background: rgba(255, 255, 255,.1);
+                        width: 60px;
+                        height: 60px;
+                        line-height: 65px;
+                        display: block;
+                        text-align: center;
+                        border-radius: 50%;
+                        border: 1px solid $theme-color;
+                        margin-top: -22px;
+                        @media #{$large1}{
+                            margin-top: 0px;
+                        }
+                        @media #{$sm}{
+                            margin-top: 0px;
+                        }
+                        @media #{$xs}{
+                            margin-top: 0px;
+                        }
+                        &:hover {
+                            color: #fff;
+                            background: $theme-color;
+                        }
+                    }
+                }
+            }
+            &:hover{
+                background: rgba(0, 122, 92,.08);
+                border: 1px solid transparent;
+                // Caption
+                .thumb-content-box {
+                    .thumb-content {
+                        h3 {
+                            color: $theme-color;
+                        }
+                        a {
+                            background:$theme-color;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    // -Right Contents
+    .visit-team{
+        background-image: url(../img/gallery/visit1.jpg);
+        background-size: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 752px;
+        width: 57%;
+        @media #{$large1}{
+            width: 50%;
+        }
+        @media #{$large2}{
+            width: 50%;
+        }
+        @media #{$lg}{
+            height: 502px;
+            width: 100%; 
+        }
+        @media #{$sm}{
+            width: 100%;
+        }
+        @media #{$md}{
+            width: 100%;
+            height: 700px;
+        }
+        @media #{$sm}{
+            height: 500px;
+            width: 100%;
+        }
+        @media #{$xs}{
+            height: 300px;
+            width: 100%;
+        }
+    }
+}
+
+// Visit One
+.visit-one{
+    background-color: #007A5C;
+    display: flex;
+    align-items: center;
+    @media #{$md}{
+      display: block;
+    }
+    @media #{$xs}{
+      display: block;
+    }
+    @media #{$sm}{
+      display: block;
+    }
+    // left Contents
+    .tailor-details{
+        width: 43%;
+        padding: 20px 40px 20px 80px;
+        @media #{$lg}{
+            width: 49%;
+            padding: 20px 20px 20px 50px;
+        }
+        @media #{$large1}{
+            width: 55%
+        }
+        @media #{$laptop}{
+            width: 41%
+        }
+        @media #{$md}{
+            width: 82%;
+            padding: 50px 30px;
+        }
+        @media #{$sm}{
+            width: 100%;
+            padding: 50px 30px;
+        }
+        @media #{$xs}{
+            width: 100%;
+            padding: 50px 30px;
+        }
+    }
+
+    // -Right Contents
+    .visit-team{
+        background-image: url(../img/gallery/visit2.jpg);
+        background-color:#FFF6EE ;
+        background-size: cover;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 628px;
+        width: 52%;
+        
+        .wrapper{
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                bottom: 0px;
+                right: 0px;
+                left: 0px;
+                top: 0;
+                background: #FFF6EE;
+            }
+        }
+       
+        
+         @media #{$lg}{
+            width: 60%;
+        }
+        @media #{$sm}{
+            width: 100%;
+        }
+        @media #{$md}{
+            width: 100%;
+            height: 500px;
+        }
+        @media #{$sm}{
+            height: 430px;
+            width: 100%;
+        }
+        @media #{$xs}{
+            height: 250px;
+            width: 100%;
+        }
+    }
+}
+

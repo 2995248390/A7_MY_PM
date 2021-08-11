@@ -1,0 +1,201 @@
+@CHARSET "UTF-8";
+
+* {
+	font-family: 微软雅黑, 楷体, 华文新魏, 仿宋_GB2312, 楷体_GB2312;
+	font-size: 12px;
+}
+
+body {
+	background-color: #f7f9f8;
+}
+
+.msg {
+	font-size: 12px;
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.query, .data, .button {
+	margin: 0 auto;
+	width: 99%;
+	padding: 1px;
+}
+
+table {
+	width: 100%;
+	background-color: #7ec2de;
+	border: 1px solid #7ec2de;
+	border-spacing: 1px;
+}
+
+caption {
+	font-family: 微软雅黑;
+	font-size: 14px;
+	font-weight: bold;
+	color: #808080;
+}
+
+hr {
+	border-color: #d3d3d3;
+	width: 160px;
+}
+
+tr {
+	background-color: #f7f5fa;
+	height: 24px;
+	white-space: nowrap;
+}
+
+.query tr {
+	height: 24px;
+}
+
+.data tr td {
+	padding-left: 5px;
+}
+
+/**奇数行的颜色变换,odd替换成even则偶数行变色*/
+.data tr:nth-child(odd) {
+	background: #ecf2f0;
+}
+/**鼠标选中改行时候,颜色变换*/
+.data tr:hover {
+	background: #dbf3ff;
+	/*background: #dbf3ff;
+       background: #dbf3ff;
+       background: #dbf3ff;*/
+}
+
+.data tr td:nth-child(1) {
+	text-align: center;
+	width: 30px;
+	padding-left: 0px;
+}
+
+.data tr td:nth-child(2) {
+	text-align: center;
+	width: 40px;
+	padding-left: 0px;
+}
+
+.data tr td:last-child {
+	text-align: center;
+	width: 60px;
+	padding-left: 0px;
+}
+
+.title td {
+	background-image: url("../../img/title009.png");
+	text-align: center;
+	font-family: 微软雅黑, 黑体;
+	font-size: 12px;
+	font-weight: bold;
+	color: #5f5f5f;
+	height: 22px;
+}
+
+.query .title td {
+	text-align: left;
+}
+
+.edit .title td {
+	text-align: left;
+}
+
+.button td {
+	background-image: url("../../img/title009.png");
+	text-align: center;
+}
+
+input {
+	width: 140px;
+}
+
+select {
+	width: 144px;
+	height: 22px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+	width: 14px;
+	height: 14px;
+	min-height: 14px;
+}
+
+input[type="number"] {
+	text-align: right;
+}
+
+input[type="submit"], input[type="button"] {
+	height: 22px;
+	width: 50px;
+	font-size: 12px;
+	font-family: 微软雅黑, 黑体;
+	text-align: center;
+}
+
+input[type="submit"]:active, button:active {
+	outline: solid 2px #aaa
+}
+
+a {
+	font-size: 12px;
+	text-decoration: none;
+	color: black;
+}
+
+.edit {
+	width: 65%;
+	margin: 0 auto;
+	padding: 1px;
+}
+
+.editw {
+	width: 65%;
+	margin: 0 auto;
+	padding: 1px;
+}
+
+.editw tr {
+	height: 26px;
+}
+
+.editw .title td {
+	text-align: left;
+}
+
+.edit_button td {
+	background-image: url("../../img/title009.png");
+	text-align: center;
+}
+
+.vtextarea {
+	height: 100px;
+	width: 300px;
+}
+
+#address {
+	width: 400px;
+	height: 18px;
+}
+
+/** 查看信息页面,备注用  **/
+.memotext {
+	height: 150px;
+	width: 550px;
+	overflow-y: scroll;
+	overflow-x: scroll;
+	white-space: pre-wrap;
+	word-break: break-all;
+	word-wrap: break-word;
+	font-family: Arial;
+	font-size: 14px; /*字体加大*/
+	line-height: 20px; /**行间距加宽**/
+	letter-spacing: 1.5px; /*字符间距**/
+}
+
+/*图标*/
+img {
+	height: 10px;
+	width: 10px;
+}

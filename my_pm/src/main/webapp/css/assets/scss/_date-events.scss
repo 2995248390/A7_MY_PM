@@ -1,0 +1,67 @@
+/*---------------------
+        Counter
+-----------------------*/
+
+.date-events {
+    padding: 90px 0;
+    @media #{$sm}{
+        padding: 60px 0;
+    }
+    @media #{$xs}{
+        padding: 60px 0;
+    }
+    .date-wrapper{
+        background: #fff;
+        padding: 60px 60px 60px 60px;
+        border-radius: 60px;
+        @media #{$xs}{
+            padding: 50px 20px 50px 20px;
+            border-radius: 20px;
+        }
+    }
+    .cd-timer {
+        text-align: center;
+        .cd-item {
+            display: inline-block;
+            text-align: center;
+            margin-left: 15px;
+            height: 70px;
+            width: 70px;
+            padding-top: 10px;
+            position: relative;
+            background: rgba(251, 206, 15,.1);
+            border-radius: 10px;
+            margin-bottom: 5px;
+            line-height: 1;
+            @media #{$xs}{
+                margin-left: 5px;
+                height: 60px;
+                width: 55px;
+                padding-top: 10px;
+            }
+            &:first-child {
+                margin-left: 0;
+            }
+            span {
+                font-family: $font_3;
+                font-size: 30px;
+                color: #423F8D;
+                @media #{$xs}{
+                    font-size: 15px;
+                    font-weight: 600;
+                }
+            }
+            p {
+                font-size: 14px;
+                color: #423F8D;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+
+
+
+
+

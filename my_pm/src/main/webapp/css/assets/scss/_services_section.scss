@@ -1,0 +1,50 @@
+.our-services-area{
+    .single-services1{
+        // padding: 35px 30px 1px 30px;
+        // @media #{$xs}{
+        //     padding: 35px 19px 1px 19px;
+        // }
+        .services-ion{
+            margin-bottom: 19px;
+        }
+        .services-cap{
+            h5{
+    
+                a{
+                    color: #fff;
+                    font-family: $font_2;
+                    font-size: 24px;
+                    line-height: 1.4;
+                    margin-bottom: 12px;
+                    font-weight: 600;
+                    display: block;
+                    @media #{$sm}{
+                        font-size: 20px;
+                    }
+                }
+                a:hover{
+                    color: #fff;
+                }
+            }
+            p{
+                margin-bottom: 24px;
+                font-size: 16px;
+                font-weight: 300;
+                color: #fff;
+                @media #{$lg}{
+                    font-size: 16px;
+                }
+            }
+            a.more-btn{
+                color: $theme-color;
+                font-size: 18px;
+                font-weight: 400;
+                &:hover{
+                    letter-spacing: 1px;
+                }
+            }
+    
+        }
+    }
+}
+

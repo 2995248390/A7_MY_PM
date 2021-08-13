@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%String path=request.getContextPath(); %>
 <html>
 <head>
@@ -90,18 +91,29 @@ caption {
 				</tr>
 				<tr>
 					<td>性别:</td>
-					<td><e:radio name="sex" value="男:1,女:2"
-							defval="1" /></td>
+					<td>
+					<input type="radio" name="sex" value="1" checked="checked">男
+					<input type="radio" name="sex" value="2">女
+					</td>
 					<td>年龄:</td>
 					<td><e:text name="age" /></td>
 				</tr>
 				<tr>
 					<td>民族:</td>
-					<td><e:select value="ocnation" name="nation"
-							/></td>
+					<td>
+					<select name="nation">
+						<c:forEach var="nation" items="${nationlist}">
+						<option value="${nation.value}">${nation.name}</option>
+						</c:forEach>
+					</select>
 					<td>地区:</td>
-					<td><e:select value="occommunity" name="community"
-							 /></td>
+					<td>
+					<select name="community">
+						<c:forEach var="community" items="${communitylist}">
+						<option value="${community.value}">${community.name}</option>
+						</c:forEach>
+					</select>
+					</td>
 				</tr>
 				<tr>
 					<td>生日:</td>

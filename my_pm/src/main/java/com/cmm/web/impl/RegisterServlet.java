@@ -47,15 +47,15 @@ public class RegisterServlet extends BaseServlet
 		String path = request.getParameter("path");
 		//如果有path 表示时注册页面初始化
 		if(path!=null && path.equals("1")) {
-			request.setAttribute("ocnation", Tools.getOptions("nation"));
-			request.setAttribute("occommunity", Tools.getOptions("community"));
+			request.setAttribute("nationlist", Tools.getOptions("nation"));
+			request.setAttribute("communitylist", Tools.getOptions("community"));
 			request.setAttribute("account", request.getParameter("newaccount"));
 			request.setAttribute("upass", request.getParameter("newupass"));
 			return "next.jsp";
 		}else{
 		//没有path时添加注册用户
 		RegisterServicesImpl services=new RegisterServicesImpl(this.parseRequest(request));
-		String msg=services.register()==1?"注册成功":"注册失败,请重新输入";
+		String msg=services.register()==1?"注册成功":"注册失败,注意一个人只能有一账户,请重新输入";
 		request.setAttribute("msg", msg);
 		return "login.jsp";
 		}

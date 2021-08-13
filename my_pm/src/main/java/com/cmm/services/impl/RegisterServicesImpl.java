@@ -31,6 +31,10 @@ public class RegisterServicesImpl extends JdbcServicesSupport
 	
 	 public int register()throws Exception
 	 {
+		 String idcard= this.getString("idcard");
+		if(this.checkOne(idcard)){
+			return 0;
+		}
 		 StringBuilder sql=new StringBuilder()
 					.append("insert into user(account,upass,truename,idcard,systype,")	
 					.append("				  sex,age,nation,community,birthday, ")	          
@@ -64,4 +68,13 @@ public class RegisterServicesImpl extends JdbcServicesSupport
 			};
 			return this.executeUpdate(sql.toString(), params);
 		}
+	 //查询账号是否存在.属性唯一标识是idcar
+	 private boolean checkOne(String idcard)throws Exception {
+		 String sql = "select count(*) form user where idcard=?";
+		 Map<String,String> map = this.queryForMap(sql, idcard);
+		 if(map.get("uid")!=null) {
+		 return true;
+		 }
+		 return false;
+	 }
 }

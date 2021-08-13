@@ -31,10 +31,10 @@ body {
 						action="${pageContext.request.contextPath}/register.htm?path=1"
 						method="post">
 						<div class="wthree-field">
-							<input name="newaccount" id="text1" type="text" placeholder="账号" required>
+							<input name="newaccount" id="text1" type="text" placeholder="创建账号" required>
 						</div>
 						<div class="wthree-field">
-							<input name="newupass" id="myInput" type="Password" placeholder="密码">
+							<input name="newupass" id="myInput" type="Password" placeholder="创建密码" required>
 						</div>
 						<div class="wthree-field">
 							<button type="submit" class="btn">完善信息</button>
@@ -63,13 +63,10 @@ body {
 							<span style="color: #f00">${param.flag==8?"账号密码错误":""}</span>
 								<span style="color: #f00">${msg }</span>
 						</div>
-
 						<p class="message">
 							新用户? <a href="#">立即注册</a>
 						</p>
-
 					</form>
-
 				</div>
 			</div>
 			<script src='js/jquery.min.js'></script>

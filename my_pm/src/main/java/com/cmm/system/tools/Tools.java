@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -91,11 +92,11 @@ public final class Tools
 			return Tools.sendEmail(emailaddress,null);
 		}
 
-	public static List<LabelValueBean> getOptions(String fname)throws Exception
+	public static List<Map<String,String>> getOptions(String fname)throws Exception
 	{
 		return Tools.getOptions(fname, "0");
 	}
-	public static List<LabelValueBean> getOptions(String fname,String sfcode)throws Exception
+	public static List<Map<String,String>> getOptions(String fname,String sfcode)throws Exception
 	{
 		PreparedStatement pstm=null;
 		ResultSet rs=null;
@@ -115,12 +116,14 @@ public final class Tools
 		    pstm.setObject(3, fname);
 			rs=pstm.executeQuery();
 		    
-		    List<LabelValueBean> opts=new ArrayList<>();
-		    LabelValueBean bean=null;  
+			List opts=new ArrayList<>();
+		    Map<String,String> bean = null; 
 		    while(rs.next())
 		    {
 		    	//封装当前行数据
-		    	bean=new  LabelValueBean(rs.getString(1), rs.getString(2));
+		    	bean=new HashMap<String,String>();
+		    	bean.put("value", rs.getString(1));
+		    	bean.put("name", rs.getString(1));
 		    	opts.add(bean);
 		    }
 		    return opts;

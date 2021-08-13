@@ -30,7 +30,9 @@ public abstract class BaseServlet extends HttpServlet
 			request.setAttribute("msg", "网络故障!");
 			ex.printStackTrace();
 		}
+		if(!path.equals("")) {
 		request.getRequestDispatcher(path).forward(request, response);
+		}
 	}
 	/**
 	 * 子类的流程调度方法

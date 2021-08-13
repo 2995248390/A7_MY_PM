@@ -122,7 +122,7 @@ public final class Tools
 		    {
 		    	//封装当前行数据
 		    	bean=new HashMap<String,String>();
-		    	bean.put("value", rs.getString(1));
+		    	bean.put("value", rs.getString(2));
 		    	bean.put("name", rs.getString(1));
 		    	opts.add(bean);
 		    }

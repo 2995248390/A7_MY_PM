@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="GBK"%>
+<%String path=request.getContextPath(); %>
 <html>
 <head>
 <title>welcome,Login!</title>
@@ -17,6 +18,11 @@ body {
 	overflow-y: hidden;
 }
 </style>
+<script type="text/javascript">
+	function fh(){
+		location.href="main.jsp"
+	}
+</script>
 </head>
 <body>
 	<section class="main">
@@ -50,14 +56,14 @@ body {
 						action="${pageContext.request.contextPath}/login.htm"
 						method="post">
 						<div class="wthree-field">
-							<input name="account" id="text1" type="text" value=""
-								placeholder="ÕËºÅ" required>
+							<input name="account" id="text1" type="text" value="" placeholder="ÕËºÅ" required>
 						</div>
 						<div class="wthree-field">
-							<input name="upass" id="myInput" type="Password" placeholder="ÃÜÂë">
+							<input name="upass" id="myInput" type="Password" placeholder="ÃÜÂë" required>
 						</div>
 						<div class="wthree-field">
 							<button type="submit" class="btn">µÇÂ¼</button>
+							<button type="button" class="btn" onclick="fh()">»Øµ½Ö÷Ò³</button>
 						</div>
 						<div>
 							<span style="color: #f00">${param.flag==8?"ÕËºÅÃÜÂë´íÎó":""}</span>

@@ -12,7 +12,7 @@
  * Description:   用户注册账号
  *
  */
-package com.cmm.web.impl;
+package com.cmm.web.impl.D1;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cmm.services.impl.D1010ServiceImpl;
 import com.cmm.services.impl.RegisterServicesImpl;
 import com.cmm.system.tools.Tools;
 import com.cmm.web.support.BaseServlet;
@@ -54,8 +55,8 @@ public class RegisterServlet extends BaseServlet
 			return "next.jsp";
 		}else{
 		//没有path时添加注册用户
-		RegisterServicesImpl services=new RegisterServicesImpl(this.parseRequest(request));
-		String msg=services.register()==1?"注册成功":"注册失败,注意一个人只能有一账户,请重新输入";
+			D1010ServiceImpl services = new D1010ServiceImpl(this.parseRequest(request));
+		String msg=services.register()==1?"注册成功":"注册失败,注意:一个人一个号";
 		request.setAttribute("msg", msg);
 		return "login.jsp";
 		}

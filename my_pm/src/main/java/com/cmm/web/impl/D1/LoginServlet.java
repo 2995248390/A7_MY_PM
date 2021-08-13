@@ -1,10 +1,11 @@
-package com.cmm.web.impl;
+package com.cmm.web.impl.D1;
 
 import java.util.Map;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.cmm.services.impl.LoginServiceImpl;
+
+import com.cmm.services.impl.D1010ServiceImpl;
 import com.cmm.web.support.BaseServlet;
 /**
  * FileName:      A2012Action
@@ -25,7 +26,7 @@ public class LoginServlet extends BaseServlet {
 	protected String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		//进入到这个请求的有,登录,退出,异常页面请求重登
 		req.getSession().removeAttribute("userinfo");
-		LoginServiceImpl services = new LoginServiceImpl(this.parseRequest(req));
+		D1010ServiceImpl services = new D1010ServiceImpl(this.parseRequest(req));
 		Map<String, String> userinfo = null;
 		//检查账号密码
 		try {

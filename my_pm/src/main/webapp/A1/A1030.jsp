@@ -79,7 +79,7 @@ ${ins }
        <select  name="qcommunity"  >
        		<option value="">--²»ÏÞ--</option>
        		<c:forEach var="com" items="${occommunity }" >
-       		<option value="${com.value }">${com.name }</option>
+       		<option value="${com.value }">${com.name }1</option>
       		</c:forEach>
        </select>
        </td>

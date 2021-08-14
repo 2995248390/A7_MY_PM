@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cmm.services.impl.A1070ServiceImpl;
-import com.cmm.services.impl.LoginServiceImpl;
+import com.cmm.services.impl.D1010ServiceImpl;
 import com.cmm.web.support.BaseServlet;
 /**
  * FileName:      A1071Servlet
@@ -32,8 +32,8 @@ public class A1071Servlet extends BaseServlet {
 		//根据uid去修改
 		if(services.updatePerson(uerinfo.get("uid"))) {
 			request.setAttribute("msg", "修改成功");
-			//修改成功将数据再次存储在session覆盖掉之前的userinfo,方法复用的是LoginServiceImpl的登录方法
-			LoginServiceImpl servicelogin = new LoginServiceImpl(this.parseRequest(request));
+			//修改成功将数据再次存储在session覆盖掉之前的userinfo,方法复用的是D1010ServiceImpl的登录方法
+			D1010ServiceImpl servicelogin = new D1010ServiceImpl(this.parseRequest(request));
 			Map<String, String> userinfo = servicelogin.loginCheck();
 			String systype = userinfo.get("systype");
 			//如果是医生再次补充医生信息

@@ -44,7 +44,7 @@
 	}
 	</script>
 
-	
+
 </head>
 <body>
 ${msg }<!-- 显示查询条件的结果（查询成功或没有符合条件的数据） -->
@@ -70,27 +70,35 @@ ${ins }
     <tr>
        <td>用户账号</td>
        <td> 
-          <e:text name="qaccount" />
+          <input type="text" name="qaccount" >
        </td>
        <td>真实姓名</td>
-       <td><e:text name="qtruename" /></td>
+       <td><input type="text" name="qtruename" ></td>
        <td>所属社区</td>
-       <td><e:select value="occommunity" name="qcommunity" header="true" /></td>
+       <td>
+       <select  name="qcommunity"  >
+       		<option value="">--不限--</option>
+       		<c:forEach var="com" items="${occommunity }" >
+       		<option value="${com.value }">${com.name }</option>
+      		</c:forEach>
+       </select>
+       </td>
        <td>记录状态</td>
-       <td><e:text name="qrecordstate"/></td>
+       <td><input type="text" name="qrecordstate" ></td>
     </tr>
     <tr>
        <td>性别</td>
        <td>
-          <e:radio name="qsex" value="男:1,女:2,不限:''" defval=""/>
+          <input type="radio" name="qsex"  id="qsex" value="1">男<input type="radio" name="qsex"  id="qsex" value="2">女<input type="radio" name="qsex"  id="qsex" value="" checked="checked">不限
        </td>
        <td>记录时间[B]</td>
-       <td>
-         <e:date  name="bbegintime"/>
+       <td>      
+         <input type="date" name="bbgeintime" id="bbgeintime" value=""/>
        </td>
        <td>记录时间[E]</td>
        <td>
          <e:date  name="ebegintime"/>
+         
        </td>
 	   <td colspan="2"></td>
     </tr>

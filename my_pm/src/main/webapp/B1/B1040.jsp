@@ -1,5 +1,4 @@
 <%@ page language="java" pageEncoding="GBK"%>
-<%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e" %>
 <%String path=request.getContextPath(); %>
 <html>
 <head>
@@ -90,6 +89,7 @@ ${ins }
  </div>
  <input type="hidden" name="eid" value="${param.eid }">
  <input type="hidden" name="onum" value="${onum }">
+ <input type="hidden" name="qeno" value="${qeno }">
  <e:hidden name="qeno"/>
 </form>
 </body>

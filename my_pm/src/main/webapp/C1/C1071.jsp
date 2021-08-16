@@ -1,6 +1,5 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e" %>
 <%String path=request.getContextPath(); %>
 <html>
 <head>

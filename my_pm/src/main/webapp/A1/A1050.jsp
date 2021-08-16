@@ -1,7 +1,6 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e" %>
 <%String path=request.getContextPath(); %>
 <html>
 <head>
@@ -48,30 +47,39 @@ ${ins }
     <tr>
        <td>用户账号</td>
        <td> 
-          <e:text name="qaccount" />
+          <input type="text" name="qaccount" >
        </td>
        <td>真实姓名</td>
-       <td><e:text name="qtruename" /></td>
+       <td><input type="text" name="qtruename" ></td>
        <td>所属社区</td>
-       <td><e:select value="occommunity" name="qcommunity" header="true" /></td>
+       <td>
+       <select  name="qcommunity"  >
+       		<option value="">--不限--</option>
+       		<c:forEach var="com" items="${occommunity }" >
+       		<option value="${com.value }">${com.name }</option>
+      		</c:forEach>
+       </select>
+       </td>
        <td>用户状态</td>
-       <td><e:text name="userstate"/></td>
+       <td><input type="text" name="userstate" ></td>       
     </tr>
     <tr>
        <td>性别</td>
        <td>
-          <e:radio name="qsex" value="男:1,女:2,不限:''" defval=""/>
+          <input type="radio" name="qsex"  id="qsex" value="1">男
+          <input type="radio" name="qsex"  id="qsex" value="2">女
+          <input type="radio" name="qsex"  id="qsex" value="" checked="checked">不限
        </td>
        <td>评价分数[B]</td>
        <td>
-         <e:text  name="bgrade" />
+         <input type="text" name="bgrade" >
        </td>
        <td>评价分数[E]</td>
        <td>
-         <e:text  name="egrade" />
+         <input type="text" name="egrade" >
        </td>
        <td>评价状态</td>
-       <td><e:text name="qappraisestate"/></td>
+       <td><input type="text" name="qappraisestate" ></td>
     </tr>
   </table>
 </div>

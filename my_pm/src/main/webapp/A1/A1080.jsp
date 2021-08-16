@@ -1,6 +1,5 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e" %>
 <%String path=request.getContextPath(); %>
 <html>
 <head>
@@ -42,13 +41,15 @@ table tr:nth-child(even) {
     <tr>
     	
     	<td>
-    		请输入验证码：<e:text name="mailcode" />
+    		请输入验证码：
+    		<input type="text" name="mailcode"/>
     	</td>
     	<td>
     	<input type="submit" name="next" value="获取验证码" formaction="<%=path%>/a1082.htm?thepath=1">
     	</td>    	
     	<td>
-    		请输入新邮箱：<e:text name="newmail" />
+    		请输入新邮箱：
+    		<input type="text" name="newmail"/>
     	</td>
     	<td>
     	<input type="submit" name="next" value="更换邮箱" formaction="<%=path%>/a1082.htm?thepath=2">

@@ -1,7 +1,6 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e" %>
 <%String path=request.getContextPath(); %>
 <html>
 <head>
@@ -58,7 +57,7 @@ ${ins }
     <tr>
        <td>单号</td>
        <td> 
-          <e:text name="qonum" />
+          <input type="text" name="qonum">
        </td>
        <td>预约时间B</td>       
        <td><input type="datetime-local" name="bappointment"></td>
@@ -67,7 +66,14 @@ ${ins }
     </tr>
     <tr>
        <td>单状态</td>
-       <td><e:select value="qfinishappraise" name="qorderliststate" header="true" /></td>
+       <td>
+       <select name="qorderliststate">
+        	<option value="">--不限--</option>
+        	<c:forEach var="order" items="${qorderliststate }">
+        		<option value="${order.value }">${order.name }</option>
+        	</c:forEach>
+       </select>
+       </td>
        <td>完成时间B</td>       
        <td><input type="datetime-local" name="bovertime"></td>
        <td>完成时间E</td>       

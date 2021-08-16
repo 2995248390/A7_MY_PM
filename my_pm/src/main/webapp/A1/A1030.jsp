@@ -1,7 +1,6 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e" %>
 <%String path=request.getContextPath(); %>
 <html>
 <head>
@@ -89,16 +88,17 @@ ${ins }
     <tr>
        <td>性别</td>
        <td>
-          <input type="radio" name="qsex"  id="qsex" value="1">男<input type="radio" name="qsex"  id="qsex" value="2">女<input type="radio" name="qsex"  id="qsex" value="" checked="checked">不限
+          <input type="radio" name="qsex"  id="qsex" value="1">男
+          <input type="radio" name="qsex"  id="qsex" value="2">女
+          <input type="radio" name="qsex"  id="qsex" value="" checked="checked">不限
        </td>
        <td>记录时间[B]</td>
        <td>      
-         <input type="date" name="bbgeintime" id="bbgeintime" value=""/>
+         <input type="date" name="bbgeintime" id="bbgeintime" />
        </td>
        <td>记录时间[E]</td>
        <td>
-         <e:date  name="ebegintime"/>
-         
+         <input type="date" name="ebgeintime"/>
        </td>
 	   <td colspan="2"></td>
     </tr>

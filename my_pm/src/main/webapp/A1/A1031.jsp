@@ -1,6 +1,5 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e" %>
 <%String path=request.getContextPath(); %>
 <html>
 <head>
@@ -80,14 +79,7 @@ ${ins }
    </table>
  </div>
  <input type="hidden" name="rid" value="${ins.rid }">
- <e:hidden name=""/>
- <e:hidden name="qename"/>
- <e:hidden name="qsex"/>
- <e:hidden name="qnation"/>
- <e:hidden name="qjob"/>
- <e:hidden name="bsal"/>
- <e:hidden name="esal"/>
- <e:hidden name="query"/>
+
  
 </form>
 </body>

@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MainServlet extends BaseServlet {
 	@Override
 	protected String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		D1010ServiceImpl services = new D1010ServiceImpl(this.parseRequest(request));
+		 D1010ServiceImpl services = new D1010ServiceImpl(this.parseRequest(request));
 		 String sysmenu = services.getMenuTree("2");
 		 request.getSession().setAttribute("sysmenu", sysmenu);
 		 response.setCharacterEncoding("UTF-8");

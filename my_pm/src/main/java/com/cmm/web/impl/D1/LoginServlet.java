@@ -37,10 +37,10 @@ public class LoginServlet extends BaseServlet {
 		}
 		System.out.println(userinfo);
 		//ÓÐ¾Í´æÖµ
-		if(userinfo!=null) 	{
-			String systype = userinfo.get("systype");
+		if(userinfo!=null){
+			String systype = (String) userinfo.get("systype");
 			if(systype.equals("3")) {
-				Map<String,String> docinfo = services.getDocMsg(userinfo.get("uid"));
+				Map<String,String> docinfo = services.getDocMsg((String)userinfo.get("uid"));
 				if(docinfo!=null) {
 				userinfo.putAll(docinfo);
 				}

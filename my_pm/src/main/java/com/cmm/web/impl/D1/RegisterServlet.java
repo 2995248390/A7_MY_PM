@@ -54,8 +54,9 @@ public class RegisterServlet extends BaseServlet
 			return "next.jsp";
 		}else{
 		//没有path时添加注册用户
-			D1010ServiceImpl services = new D1010ServiceImpl(this.parseRequest(request));
-		String msg=services.register()==1?"注册成功":"注册失败,注意:一个人一个号";
+		D1010ServiceImpl services = new D1010ServiceImpl(this.parseRequest(request));
+		String path1 = this.getServletContext().getRealPath("images/user.jpg");
+		String msg=services.register(path1)==1?"注册成功":"注册失败,注意:一个人一个号";
 		request.setAttribute("msg", msg);
 		return "login.jsp";
 		}

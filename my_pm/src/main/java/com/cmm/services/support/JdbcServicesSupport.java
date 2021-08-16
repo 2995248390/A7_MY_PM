@@ -7,6 +7,8 @@
  */
 package com.cmm.services.support;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -29,7 +31,84 @@ public abstract class JdbcServicesSupport
 	public JdbcServicesSupport(Map<String,String> dto)
 	{
 		this.dto=dto;
-	}/****************************************************************
+	}
+    /****************************************************************
+	 *           罗航,包括图片的业务
+	 ****************************************************************/
+    //添加时对图片也进行添加
+    protected final int executeUpdateAndImg(String sql,Object...params)throws Exception
+	{
+		PreparedStatement pstm=null;
+		try
+		{
+			pstm=DBUtils.prepareStatement(sql);
+			int index=1;
+			for(Object e:params)
+			{
+				if(e instanceof InputStream) {
+				pstm.setBinaryStream(index++, (InputStream) e, ((InputStream) e).available());
+				}
+				else {
+				pstm.setObject(index++,e);
+				}
+			}
+			return pstm.executeUpdate();
+		}
+		finally
+		{
+			DBUtils.close(pstm);
+		}
+	}
+    //包含图片的查询
+    protected final Map<String,Object> queryForMapAndImg(final String sql,Object...params)throws Exception
+	{
+		PreparedStatement pstm=null;  //定义语句对象
+		ResultSet rs=null;
+		try
+		{
+			pstm=DBUtils.prepareStatement(sql);
+			//参数赋值
+			int index=1;
+			for(Object e:params)
+			{
+				pstm.setObject(index++, e);
+			}
+			//执行SQL语句
+			rs=pstm.executeQuery();
+			//定义装载查询结果Map变量
+			Map<String,Object> ins=null;
+			//判断是否存在查询结果
+			if(rs.next())
+			{
+				//获取rs描述对象
+				ResultSetMetaData rsmd=rs.getMetaData();
+				//计算列数
+				int count=rsmd.getColumnCount();
+				//安全的初始容量
+				int initSize=((int)(count/0.75))+1;
+				//实例化HashMap 装载查询结果
+				ins=new HashMap<>(initSize);
+				//遍历当前行记录
+				for(int i=1;i<=count;i++)
+				{
+					//完成列级映射
+					if(rsmd.getColumnType(i)==-4) {
+					ins.put(rsmd.getColumnLabel(i).toLowerCase(),rs.getBinaryStream(i));
+					}else {
+					ins.put(rsmd.getColumnLabel(i).toLowerCase(),rs.getObject(i));
+					}
+				}
+			}
+            return ins;			
+		}
+		finally
+		{
+			DBUtils.close(rs);
+			DBUtils.close(pstm);
+		}
+	}
+	
+	/****************************************************************
 	 *           温晨宏
 	 ****************************************************************/
 	protected int execute(String sql,Object...params)throws Exception

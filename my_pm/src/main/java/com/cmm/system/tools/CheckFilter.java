@@ -31,6 +31,7 @@ public class CheckFilter extends HttpFilter{
 		            ||path.endsWith("register.htm")
 		            ||path.endsWith("next.jsp")
 		            ||path.endsWith("main.jsp")
+		            ||path.endsWith("register.jsp")
 		            ||path.endsWith("main.htm")
 		            ||path.endsWith("information.jsp")
 		            ||path.endsWith("errorpage.jsp")

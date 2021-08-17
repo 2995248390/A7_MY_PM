@@ -51,7 +51,7 @@ public class RegisterServlet extends BaseServlet
 			request.setAttribute("communitylist", Tools.getOptions("community"));
 			request.setAttribute("account", request.getParameter("newaccount"));
 			request.setAttribute("upass", request.getParameter("newupass"));
-			return "next.jsp";
+			return "register.jsp";
 		}else{
 		//没有path时添加注册用户
 		D1010ServiceImpl services = new D1010ServiceImpl(this.parseRequest(request));

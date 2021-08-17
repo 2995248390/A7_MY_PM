@@ -26,7 +26,7 @@ width:60%;
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
   <legend>用户注册</legend>
 </fieldset>
-<form class="layui-form" action="register.htm" method="post" enctype="multipart/form-data"> 
+<form class="layui-form" action="register.htm" method="post"> 
 	<!-- 账号输入框 -->
 	<div class="layui-form-item">
 	   		<label class="layui-form-label">账号</label>
@@ -75,8 +75,8 @@ width:60%;
 	 	<div class="layui-inline">
 		    <label class="layui-form-label">性别:</label>
 			    <div class="layui-input-block">
-			      <input type="radio" name="sex" value="男" title="男" checked="">
-			      <input type="radio" name="sex" value="女" title="女">
+			      <input type="radio" name="sex" value="1" title="男" checked="">
+			      <input type="radio" name="sex" value="2" title="女">
 			    </div>
 		</div>
 		<div class="layui-inline">
@@ -139,44 +139,6 @@ layui.use(['upload','form', 'layedit', 'laydate','element', 'layer'], function()
 	  ,layer = layui.layer
 	  ,layedit = layui.layedit
 	  ,laydate = layui.laydate;
-	  //上传图片的操作
-	  var uploadInst = upload.render({
-		    elem: '#test1'
-		    ,url: 'uploadimg.htm' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
-		    ,before: function(obj){
-		      //预读本地文件示例，不支持ie8
-		      obj.preview(function(index, file, result){
-		        $('#demo1').attr('src', result); //图片链接（base64）
-		      });
-		      
-		      element.progress('demo', '0%'); //进度条复位
-		      layer.msg('上传中', {icon: 16, time: 0});
-		    }
-		    ,done: function(res){
-		      //如果上传失败
-		      if(res.code > 0){
-		        return layer.msg('上传失败');
-		      }
-		      //上传成功的一些操作
-		      //……
-		      $('#demoText').html(''); //置空上传失败的状态
-		    }
-		    ,error: function(){
-		      //演示失败状态，并实现重传
-		      var demoText = $('#demoText');
-		      demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
-		      demoText.find('.demo-reload').on('click', function(){
-		        uploadInst.upload();
-		      });
-		    }
-		    //进度条
-		    ,progress: function(n, elem, e){
-		      element.progress('demo', n + '%'); //可配合 layui 进度条元素使用
-		      if(n == 100){
-		        layer.msg('上传完毕', {icon: 1});
-		      }
-		    }
-		  });
 	  	//渲染时间框	
 		laydate.render({
    	 		elem: '#date'

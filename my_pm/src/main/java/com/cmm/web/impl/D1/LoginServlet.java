@@ -35,7 +35,6 @@ public class LoginServlet extends BaseServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(userinfo);
 		//ÓÐ¾Í´æÖµ
 		if(userinfo!=null){
 			String systype = (String) userinfo.get("systype");

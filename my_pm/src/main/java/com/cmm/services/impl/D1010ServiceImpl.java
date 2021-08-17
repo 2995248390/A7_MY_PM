@@ -123,7 +123,6 @@ public class D1010ServiceImpl extends JdbcServicesSupport {
 		if(this.checkOne(account)){
 			return 0;
 		}
-		System.out.println(this.getString("mail"));
 		 StringBuilder sql=new StringBuilder()
 					.append("insert into user(account,upass,truename,idcard,systype,")	
 					.append("				  sex,age,nation,community,birthday, ")	          

@@ -34,13 +34,15 @@ public class UserImgServlet extends BaseServlet {
 		Map<String,String> userinfo = (Map<String, String>) request.getSession().getAttribute("userinfo");
 		String uid  = userinfo.get("uid");
 		InputStream userimg = services.getUserimg(uid);
-		OutputStream os = response.getOutputStream();
-		byte[] b = new byte[1024];
-		int len = userimg.read(b);
-		while(len!=-1) {
-			os.write(b,0,len);
-			os.flush();
-			len=userimg.read(b);	
+		if(userimg!=null) {
+			OutputStream os = response.getOutputStream();
+			byte[] b = new byte[1024];
+			int len = userimg.read(b);
+			while(len!=-1) {
+				os.write(b,0,len);
+				os.flush();
+				len=userimg.read(b);	
+			}
 		}
 		return "";
 	}

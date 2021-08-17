@@ -11,8 +11,8 @@
 <body>
 	<div class="layui-carousel" id="test" >
   <div carousel-item="">
-    <div><img alt="" src="<%=path%>/images/bg2.jpg" style="width:100%;height:100%"></div>
     <div><img alt="" src="<%=path%>/images/bg.jpg" style="width:100%;height:100%"></div>
+    <div><img alt="" src="<%=path%>/images/bg2.jpg" style="width:100%;height:100%"></div>
     <div><img alt="" src="<%=path%>/images/bg3.jpg" style="width:100%;height:100%"></div>
     <div><img alt="" src="<%=path%>/images/true.jpg" style="width:100%;height:100%"></div>
     <div><img alt="" src="<%=path%>/images/test.jpg" style="width:100%;height:100%"></div>

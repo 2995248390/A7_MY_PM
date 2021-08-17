@@ -123,6 +123,7 @@ public class D1010ServiceImpl extends JdbcServicesSupport {
 		if(this.checkOne(account)){
 			return 0;
 		}
+		System.out.println(this.getString("mail"));
 		 StringBuilder sql=new StringBuilder()
 					.append("insert into user(account,upass,truename,idcard,systype,")	
 					.append("				  sex,age,nation,community,birthday, ")	          
@@ -159,9 +160,9 @@ public class D1010ServiceImpl extends JdbcServicesSupport {
 	}
 	 //查询账号是否存在.属性唯一标识是account
 	 private boolean checkOne(String account)throws Exception {
-		 String sql = "select uid from user where accout=? ";
+		 String sql = "select uid from user where account=? ";
 		 Map<String,String> map = this.queryForMap(sql, account);
-		 if(map.get("uid")!=null) {
+		 if(map!=null) {
 		 return true;
 		 }
 		 return false;

@@ -51,11 +51,12 @@ public class RegisterServlet extends BaseServlet
 			request.setAttribute("communitylist", Tools.getOptions("community"));
 			request.setAttribute("account", request.getParameter("newaccount"));
 			request.setAttribute("upass", request.getParameter("newupass"));
-			return "next.jsp";
+			return "register.jsp";
 		}else{
 		//没有path时添加注册用户
-			D1010ServiceImpl services = new D1010ServiceImpl(this.parseRequest(request));
-		String msg=services.register()==1?"注册成功":"注册失败,注意:一个人一个号";
+		D1010ServiceImpl services = new D1010ServiceImpl(this.parseRequest(request));
+		String path1 = this.getServletContext().getRealPath("images/user.jpg");
+		String msg=services.register(path1)==1?"注册成功":"注册失败,注意:一个人一个号";
 		request.setAttribute("msg", msg);
 		return "login.jsp";
 		}

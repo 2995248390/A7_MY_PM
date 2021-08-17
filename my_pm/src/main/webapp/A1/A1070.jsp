@@ -59,6 +59,21 @@ tr td:nth-child(even) {
 </style>
 </head>
 <body>
+	<!-- 上传图片 
+	<div class="layui-upload">
+		  <button type="button" class="layui-btn" id="test1">上传图片</button>
+		  <div class="layui-upload-list">
+		    <img class="layui-upload-img" id="demo1">
+		    <p id="demoText"></p>
+		  </div>
+		  <div style="width: 95px;">
+		    <div class="layui-progress layui-progress-big" lay-showpercent="yes" lay-filter="demo">
+		      <div class="layui-progress-bar" lay-percent=""></div>
+		    </div>
+		  </div>
+	</div>   
+	<a name="list-progress"> </a>
+	-->
 	<form id="myform" action="" method="post">
 		<table>
 			<caption>

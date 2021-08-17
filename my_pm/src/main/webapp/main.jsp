@@ -1,32 +1,37 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%String path=request.getContextPath(); %>
 <html>
 <head>
-<%
-String path = request.getContextPath();
-%>
 <title>社区医疗</title>
 <style>
 @import url("css/wangcss/main/main.css");
 </style>
-<script type="text/javascript" src="<%=path%>/js/jquery341.min.js"></script>
 <script type="text/javascript" src="<%=path%>/js/jquery.min.js"></script>
 <script type="text/javascript" src="<%=path%>/js/main/tendina.min.js"></script>
 <script type="text/javascript" src="<%=path%>/js/main/common.js"></script>
-	<script type="text/javascript">
-		if(	${userinfo==null}){
-			$.ajax({
-				url:'main.htm',
-				type:'post',
-				async:false,
-				success:function(data){
-					$(".layout_left_menu").html(data)
-				}
-			});
-		};
-		$(".left").toggle();
-
-	</script>
+<style>
+.userimg{
+	margin-top:3px;
+	width: 40px;
+	height:40px;
+	border-radius:50%;
+	overflow:hidden
+}
+</style>
+<script type="text/javascript">
+	if(${userinfo==null}){
+		$.ajax({
+			url:'main.htm',
+			type:'post',
+			async:false,
+			success:function(data){
+				$(".layout_left_menu").html(data)
+			}
+		});
+	};
+	$(".left").toggle();
+</script>
 </head>
 <body>
 	<!--顶部-->
@@ -51,16 +56,17 @@ String path = request.getContextPath();
 	</c:when>
 	<c:otherwise>
 	<div id="ad_setting" class="ad_setting">
-			<a class="ad_setting_a" href="javascript:;"> <i
-				class="icon-user glyph-icon" style="font-size: 20px"></i> <span>(${userinfo.truename})</span>
-				<i class="icon-chevron-down glyph-icon"></i>
+			<a class="ad_setting_a" href="javascript:;">
+			<img class="userimg" src="userimg.htm" align="absmiddle">
+			<span>${userinfo.truename}</span>
+			<i class="icon-chevron-down glyph-icon"></i>
 			</a>
 			<ul class="dropdown-menu-uu" style="display: none" id="ad_setting_ul">
 				<li class="ad_setting_ul_li"><a href="<%=path%>/A1/A1070.jsp"
 					target="menuFrame"><i class="icon-user glyph-icon"></i> 个人中心 </a></li>
 				<li class="ad_setting_ul_li"><a href="<%=path%>/a1081.htm"
 					target="menuFrame"><i class="icon-gear glyph-icon"></i> 账号安全 </a></li>
-				<li class="ad_setting_ul_li"><a href="<%=path%>/login.htm?flag=0"><i
+				<li class="ad_setting_ul_li"><a href="<%=path%>/login.htm?path=1"><i
 					class="icon-signout glyph-icon"></i>退出</a></li>
 			</ul>	
 	</div>

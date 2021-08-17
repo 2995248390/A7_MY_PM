@@ -30,32 +30,34 @@ public class LoginServlet extends BaseServlet {
 		Map<String, String> userinfo = null;
 		//检查账号密码
 		try {
+			//如果是登录就会查找到内容,如果是退出就没有接受到参数,所以userinfo为null进入else,情况为未找到和退出,
 			userinfo = services.loginCheckByMd5();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println(userinfo);
 		//有就存值
-		if(userinfo!=null) 	{
-			String systype = userinfo.get("systype");
+		if(userinfo!=null){
+			String systype = (String) userinfo.get("systype");
 			if(systype.equals("3")) {
-				Map<String,String> docinfo = services.getDocMsg(userinfo.get("uid"));
+				Map<String,String> docinfo = services.getDocMsg((String)userinfo.get("uid"));
 				if(docinfo!=null) {
 				userinfo.putAll(docinfo);
 				}
 			}
 			 req.getSession().setAttribute("userinfo",userinfo);
 			 String sysmenu = services.getMenuTree(systype);
-			 req.getSession().setAttribute("sysmenu", sysmenu);
+			 req.setAttribute("sysmenu", sysmenu);
 			 return "main.jsp";
 		}else {
 			//如果是用户登录出错来到这就有flag=8,退出来到这,flag=0;
-			String flag = req.getParameter("flag");
-			if(flag==null) {
-			return "login.jsp?flag=8";
+			String path = req.getParameter("path");
+			//path为1则是退出
+			if(path!=null && path.equals("1")) {
+				return "main.jsp";
 			}
-			return "login.jsp";
-			
+			//没有path就为账户密码错误,回到登录页面,携带flag提示
+			return "login.jsp?flag=8";
 		}
 	}
 }

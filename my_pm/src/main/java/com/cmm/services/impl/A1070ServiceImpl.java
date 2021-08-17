@@ -32,7 +32,6 @@ public class A1070ServiceImpl extends JdbcServicesSupport {
 		String birthday = this.getString("birthday");
 		String phonenumber = this.getString("phonenumber");
 		String address = this.getString("address");
-		String mail = this.getString("mail");
 		String community = this.getString("community");
 		String memo = this.getString("memo");
 		StringBuilder sql = new StringBuilder()
@@ -54,13 +53,13 @@ public class A1070ServiceImpl extends JdbcServicesSupport {
 			sql.append("sex=?,");
 			paramList.add(sex);
 		}
+		if(this.isNotNull(birthday)) {
+			sql.append("birthday=?,");
+			paramList.add(birthday);
+		}
 		if(this.isNotNull(phonenumber)) {
 			sql.append("phonenumber=?,");
 			paramList.add(phonenumber);
-		}
-		if(this.isNotNull(mail)) {
-			sql.append("mail=?,");
-			paramList.add(mail);
 		}
 		if(this.isNotNull(community)) {
 			sql.append("community=?,");

@@ -17,6 +17,9 @@ body {
 	overflow: -Scroll;
 	overflow-y: hidden;
 }
+p{
+font-weight:bold;
+}
 </style>
 <script type="text/javascript">
 	function fh(){
@@ -50,7 +53,7 @@ body {
 							<span style="color: #f00">${param.flag==8?"账号密码错误":""}</span>
 								<span style="color: #f00">${msg }</span>
 						</div>
-						<p class="message">
+						<p>
 							新用户? <a href="register.htm?path=1">立即注册</a>
 						</p>
 					</form>

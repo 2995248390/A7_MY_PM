@@ -77,7 +77,11 @@ public class A1030ServicesImpl extends JdbcServicesSupport
 		String community =this.getString("qcommunity");
 		String recordstate =this.getString("qrecordstate");		
 		String sex =this.getString("qsex");
-		String bbegintime =this.getString("bbegintime");		
+		String bbegintime =this.getString("bbegintime");
+		
+		System.out.println("dto="+this.getDto());
+		System.out.println(this.getString("bbegintime"));
+		
 		String ebegintime =this.getString("ebegintime");
 		//完成查询语句的拼接
 		StringBuilder sql=new StringBuilder()
@@ -116,7 +120,7 @@ public class A1030ServicesImpl extends JdbcServicesSupport
 		}
 		if(this.isNotNull(bbegintime))
 		{
-			sql.append(" and a.begintime >= ?");
+			sql.append(" and c.begintime >= ?");
 			paramList.add(bbegintime);
 		}
 		if(this.isNotNull(ebegintime))

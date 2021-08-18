@@ -4,8 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.cmm.domain.ImgInfo;
 import com.cmm.services.impl.A1070ServiceImpl;
 import com.cmm.web.support.BaseServlet;
-import com.mysql.cj.xdevapi.JsonArray;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -20,19 +18,10 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
- * FileName:      A1072Servlet
- *
- * FileType:      Servlet
- *
- * Date:          2021年08月17日
- *
- * Author:        罗航
- *
- * Description:   更改头像
- *
+ * Servlet implementation class A1072Servlet
  */
 @WebServlet("/a1072.htm")
-public class A1072Servelt extends BaseServlet {
+public class A1072ervlet extends BaseServlet {
 
 	@Override
 	protected String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -66,7 +55,7 @@ public class A1072Servelt extends BaseServlet {
 		JSONObject json = new JSONObject();
 		json.put("data", imgInfo);
 		response.setContentType("text/html;charset=UTF-8");
-		response.getWriter().write("卧槽");
+		response.getWriter().write(json.toString());
 		return "";
 	}
 	

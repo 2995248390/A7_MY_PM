@@ -17,7 +17,7 @@ margin:auto auto;
 	}
 	function test(){
 		location.href="<%=path%>/a1072.htm"
-		}
+	}
 </script>
 </head>
 <body>
@@ -47,6 +47,7 @@ layui.use(['upload', 'element', 'layer'], function(){
 	  var uploadInst = upload.render({
 	    elem: '#test1'
 	    ,url: '<%=path%>/a1072.htm' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+	    
 	    ,before: function(obj){
 	      //预读本地文件示例，不支持ie8
 	      obj.preview(function(index, file, result){

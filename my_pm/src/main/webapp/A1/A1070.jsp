@@ -7,9 +7,19 @@
 <style type="text/css">
 @IMPORT url("<%=path%>/css/wangcss/style.css");
 </style>
+<script type="text/javascript" src="<%=path%>/layui/layui.js"></script>
+<link rel="stylesheet" href="<%=path%>/layui/css/layui.css">
 <script type="text/javascript">
 		if(${msg!=null}){
-			alert("${msg}");
+			if(${msg==1}){
+			layer.open({
+				content:"修改成功"
+			});
+			}else{
+			layer.open({
+				content:"修改失败"
+			});
+			}
 		}            
 </script>
 <style>
@@ -54,31 +64,9 @@ tr td:nth-child(even) {
 .btn {
 	text-align: center;
 }
-.userimg{
-	margin-top:3px;
-	width: 40px;
-	height:40px;
-	border-radius:50%;
-	overflow:hidden
-}
-.avatar{
-	margin-left:200px;
-}
-.tip{
-font-size:20px;
-font-weight:bold;
-}
 </style>
 </head>
 <body>
-	<div class="avatar">
-		<div class="tip">头像:	<img class="userimg" src="<%=path%>/userimg.htm" align="absmiddle"></div>
-		<c:choose>
-		<c:when test="${empty param.type }"></c:when>
-		<c:otherwise><a href="<%=path%>/A1/A1071.jsp">更改头像</a></c:otherwise>
-		</c:choose>
-		
-	</div>
 	<form id="myform" action="" method="post">
 		<table>
 			<caption>

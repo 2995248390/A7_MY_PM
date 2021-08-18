@@ -25,12 +25,6 @@ public class D1010ServiceImpl extends JdbcServicesSupport {
 	public D1010ServiceImpl(Map<String, String> dto) {
 		super(dto);
 	}
-	// 用户查找自己图片
-	public InputStream getUserimg(String uid) throws Exception {
-		String sql = "select userimg from user where uid=?";
-		Map<String,Object> ins =  this.queryForMapAndImg(sql, uid);
-		return (InputStream) ins.get("userimg");
-	}
 	// 用户登录的检验
 	public Map<String,String> loginCheckByMd5() throws Exception{
 		 String upass =this.getString("upass");

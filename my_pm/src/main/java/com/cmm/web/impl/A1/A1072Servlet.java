@@ -18,14 +18,21 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
- * Servlet implementation class A1072Servlet
+ * FileName:      A1072Servlet
+ *
+ * FileType:      Servlet
+ *
+ * Date:          2021年8月18日
+ *
+ * Author:        罗航
+ *
+ * Description:   个人信息修改.更改图片数据
+ *
  */
 @WebServlet("/a1072.htm")
-public class A1072ervlet extends BaseServlet {
-
+public class A1072Servlet extends BaseServlet {
 	@Override
 	protected String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("jj");
 		A1070ServiceImpl services = new A1070ServiceImpl(this.parseRequest(request));
 		String id = request.getParameter("uid");
 		if(id==null) {
@@ -41,6 +48,9 @@ public class A1072ervlet extends BaseServlet {
 				 InputStream img = item.getInputStream();
 				 //得到文件的输出流
 				 String fn = item.getFieldName();
+				 System.out.println(id);
+				 System.out.println(fn);
+				 System.out.println(img);
 				 //对应的存储
 				 if(fn.equals("userimg")) {
 					 services.saveUserImg(id,img);
@@ -55,8 +65,7 @@ public class A1072ervlet extends BaseServlet {
 		JSONObject json = new JSONObject();
 		json.put("data", imgInfo);
 		response.setContentType("text/html;charset=UTF-8");
-		response.getWriter().write(json.toString());
+		response.getWriter().write(json.toString());	
 		return "";
 	}
-	
 }

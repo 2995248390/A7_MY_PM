@@ -63,7 +63,9 @@
 			</a>
 			<ul class="dropdown-menu-uu" style="display: none" id="ad_setting_ul">
 				<li class="ad_setting_ul_li"><a href="<%=path%>/A1/A1070.jsp"
-					target="menuFrame"><i class="icon-user glyph-icon"></i> 个人中心 </a></li>
+					target="menuFrame"><i class="icon-home glyph-icon"></i> 个人中心 </a></li>
+				<li class="ad_setting_ul_li"><a href="<%=path%>/A1/A1071.jsp"
+					target="menuFrame"><i class="icon-user glyph-icon"></i> 更改头像 </a></li>
 				<li class="ad_setting_ul_li"><a href="<%=path%>/a1081.htm"
 					target="menuFrame"><i class="icon-gear glyph-icon"></i> 账号安全 </a></li>
 				<li class="ad_setting_ul_li"><a href="<%=path%>/login.htm?path=1"><i

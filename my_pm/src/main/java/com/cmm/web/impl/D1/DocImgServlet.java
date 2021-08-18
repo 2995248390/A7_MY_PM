@@ -1,46 +1,43 @@
 package com.cmm.web.impl.D1;
 
+import com.cmm.services.impl.D1010ServiceImpl;
 import com.cmm.services.impl.S1000ServiceImpl;
 import com.cmm.web.support.BaseServlet;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
- * FileName:      UserImgServlet
+ * FileName:      DocImgServlet
  *
  * FileType:      Servlet
  *
- * Date:          2021年08月16日
+ * Date:          2021年08月18日
  *
  * Author:        罗航
  *
- * Description:  	用户照片
+ * Description:  	医生照片
  *
  */
-@WebServlet("/userimg.htm")
-public class UserImgServlet extends BaseServlet {
+@WebServlet("/docimg.htm")
+public class DocImgServlet extends BaseServlet {
 	@Override
 	protected String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		S1000ServiceImpl services = new S1000ServiceImpl(this.parseRequest(request));
-		Map<String,String> userinfo = (Map<String, String>) request.getSession().getAttribute("userinfo");
-		String uid  = userinfo.get("uid");
-		InputStream userimg = services.getUserImg(uid);
-		if(userimg!=null) {
+		String did = request.getParameter("did");
+		InputStream docimg = services.getDocImg(did);
+		if(docimg!=null) {
 			OutputStream os = response.getOutputStream();
 			byte[] b = new byte[1024];
-			int len = userimg.read(b);
+			int len = docimg.read(b);
 			while(len!=-1) {
 				os.write(b,0,len);
 				os.flush();
-				len=userimg.read(b);	
+				len=docimg.read(b);	
 			}
 		}
 		return "";

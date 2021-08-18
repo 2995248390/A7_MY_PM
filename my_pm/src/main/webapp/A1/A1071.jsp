@@ -11,6 +11,14 @@ String path = request.getContextPath();
 margin:auto auto;
 }
 </style>
+<script type="text/javascript">
+	function fh(){
+		location.href="<%=path%>/a1070.htm"
+	}
+	function test(){
+		location.href="<%=path%>/a1072.htm"
+		}
+</script>
 </head>
 <body>
 <!-- 上传图片 -->
@@ -27,7 +35,8 @@ margin:auto auto;
 		  </div>
 	</div>   
 	<a name="list-progress"> </a>
-
+	  <button type="button" class="layui-btn layui-btn-lg layui-btn-normal" onclick="fh()">返回</button>
+	  <button type="button" class="layui-btn layui-btn-lg layui-btn-normal" onclick="test()">测试</button>
 <script type="text/javascript">
 layui.use(['upload', 'element', 'layer'], function(){
 	  var $ = layui.jquery
@@ -37,7 +46,7 @@ layui.use(['upload', 'element', 'layer'], function(){
 	//常规使用 - 普通图片上传
 	  var uploadInst = upload.render({
 	    elem: '#test1'
-	    ,url: 'a1072.htm' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+	    ,url: '<%=path%>/a1072.htm' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
 	    ,before: function(obj){
 	      //预读本地文件示例，不支持ie8
 	      obj.preview(function(index, file, result){
@@ -47,9 +56,9 @@ layui.use(['upload', 'element', 'layer'], function(){
 	      element.progress('demo', '0%'); //进度条复位
 	      layer.msg('上传中', {icon: 16, time: 0});
 	    }
-	    ,done: function(res){
+	    ,done: function(data){
 	      //如果上传失败
-	      if(res.code > 0){
+	      if(data.code > 0){
 	        return layer.msg('上传失败');
 	      }
 	      //上传成功的一些操作

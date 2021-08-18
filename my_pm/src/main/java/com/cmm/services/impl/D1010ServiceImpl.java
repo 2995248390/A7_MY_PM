@@ -29,7 +29,6 @@ public class D1010ServiceImpl extends JdbcServicesSupport {
 	public InputStream getUserimg(String uid) throws Exception {
 		String sql = "select userimg from user where uid=?";
 		Map<String,Object> ins =  this.queryForMapAndImg(sql, uid);
-		System.out.println(ins);
 		return (InputStream) ins.get("userimg");
 	}
 	// 用户登录的检验

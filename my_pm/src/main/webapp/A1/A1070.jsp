@@ -1,18 +1,16 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e"%>
+<%String path = request.getContextPath();%>
 <html>
 <head>
-<%
-String path = request.getContextPath();
-%>
 <style type="text/css">
 @IMPORT url("<%=path%>/css/wangcss/style.css");
 </style>
-<script>
-		if(${empty msg}){
-			alte(${msg})
-		}
+<script type="text/javascript">
+		if(${msg!=null}){
+			alert("${msg}");
+		}            
 </script>
 <style>
 caption {
@@ -56,9 +54,31 @@ tr td:nth-child(even) {
 .btn {
 	text-align: center;
 }
+.userimg{
+	margin-top:3px;
+	width: 40px;
+	height:40px;
+	border-radius:50%;
+	overflow:hidden
+}
+.avatar{
+	margin-left:200px;
+}
+.tip{
+font-size:20px;
+font-weight:bold;
+}
 </style>
 </head>
 <body>
+	<div class="avatar">
+		<div class="tip">头像:	<img class="userimg" src="<%=path%>/userimg.htm" align="absmiddle"></div>
+		<c:choose>
+		<c:when test="${empty param.type }"></c:when>
+		<c:otherwise><a href="<%=path%>/A1/A1071.jsp">更改头像</a></c:otherwise>
+		</c:choose>
+		
+	</div>
 	<form id="myform" action="" method="post">
 		<table>
 			<caption>

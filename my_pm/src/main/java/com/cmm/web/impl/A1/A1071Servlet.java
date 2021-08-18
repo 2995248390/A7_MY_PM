@@ -46,7 +46,7 @@ public class A1071Servlet extends BaseServlet {
 		}else {
 			request.setAttribute("msg", "修改失败");
 			//修改失败回到编辑页面,
-			return "A1/A1070.jsp?type=1";
+			return "A1/A1070.jsp";
 		}
 	}
 

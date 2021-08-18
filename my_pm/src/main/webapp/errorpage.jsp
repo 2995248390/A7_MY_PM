@@ -17,7 +17,7 @@ String path = request.getContextPath();
 			Please check the URL and Try again.
 		</p>
 		<div class="home">
-			<a href="<%=path%>/login.htm?flag=4" target="_parent">home</a>
+			<a href="<%=path%>/login.htm?path=1" target="_parent">home</a>
 		</div>
 	</div>
 	<div class="w3_agile-footer">

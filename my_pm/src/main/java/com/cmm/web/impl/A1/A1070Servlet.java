@@ -17,7 +17,7 @@ import com.cmm.system.tools.Tools;
  *
  * Author:        罗航
  *
- * Description:   编辑页面.获得编辑需要的默认数据
+ * Description:   个人信息修改.数据初始化显示
  *
  */
 @WebServlet("/a1070.htm")

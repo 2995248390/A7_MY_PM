@@ -1,7 +1,4 @@
-package com.cmm.web.impl.D1;
-
-import com.cmm.services.impl.D1010ServiceImpl;
-import com.cmm.web.support.BaseServlet;
+package com.cmm.web.impl.S1;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,11 +7,15 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cmm.services.impl.S1000ServiceImpl;
+import com.cmm.web.support.BaseServlet;
+
 /**
- * FileName:      UserImgServlet
+ * FileName:      ClinicImgServlet
  *
  * FileType:      Servlet
  *
@@ -22,30 +23,26 @@ import javax.servlet.http.HttpServletResponse;
  *
  * Author:        ¬ﬁ∫Ω
  *
- * Description:  	”√ªß’’∆¨
+ * Description:  	’ÔÀ˘’’∆¨∂¡»°
  *
  */
-@WebServlet("/userimg.htm")
-public class UserImgServlet extends BaseServlet {
-
+@WebServlet("/clinicimg.htm")
+public class ClinicImgServlet extends BaseServlet {
 	@Override
 	protected String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		D1010ServiceImpl services = new D1010ServiceImpl(this.parseRequest(request));
-		Map<String,String> userinfo = (Map<String, String>) request.getSession().getAttribute("userinfo");
-		String uid  = userinfo.get("uid");
-		InputStream userimg = services.getUserimg(uid);
-		if(userimg!=null) {
+		S1000ServiceImpl services = new S1000ServiceImpl(this.parseRequest(request));
+		String did = request.getParameter("did");
+		InputStream clinicimg = services.getClinicImg(did);
+		if(clinicimg!=null) {
 			OutputStream os = response.getOutputStream();
 			byte[] b = new byte[1024];
-			int len = userimg.read(b);
+			int len = clinicimg.read(b);
 			while(len!=-1) {
 				os.write(b,0,len);
 				os.flush();
-				len=userimg.read(b);	
+				len=clinicimg.read(b);	
 			}
 		}
 		return "";
 	}
-	
-
 }

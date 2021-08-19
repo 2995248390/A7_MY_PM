@@ -48,7 +48,7 @@ table tr:nth-child(even) {
 	</header>
 	<section class="slider_section position-relative">
 		<div class="slider_bg_box">
-			<img src="<%=path%>/images/slider-bg.jpg" alt="">
+			<img src="<%=path%>/clinicimg.htm?did=${doc.did}" alt="ÕïËùÕÕÆ¬">
 		</div>
 		<div class="slider_bg"></div>
 		<div class="container">
@@ -94,7 +94,7 @@ table tr:nth-child(even) {
 				</div>
 				<div class="col-md-6 col-lg-5 ml-auto">
 					<div class="img-box">
-						<img src="<%=path%>/images/spcl-img.jpg" alt="">
+						<img src="<%=path%>/docimg.htm?did=${doc.did}" alt="">
 					</div>
 				</div>
 			</div>

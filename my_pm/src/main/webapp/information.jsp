@@ -6,28 +6,17 @@
 <head>
 <title>×ÊÑ¶Ò³Ãæ</title>
 <link rel="stylesheet" href="<%=path%>/css/assets/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="<%=path%>/css/assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="<%=path%>/css/assets/css/owl.carousel.min.css">
 <link rel="stylesheet" href="<%=path%>/css/assets/css/slicknav.css">
 <link rel="stylesheet" href="<%=path%>/css/assets/css/animate.min.css">
-<link rel="stylesheet"
-	href="<%=path%>/css/assets/css/magnific-popup.css">
-<link rel="stylesheet"
-	href="<%=path%>/css/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="<%=path%>/css/assets/css/magnific-popup.css">
+<link rel="stylesheet" href="<%=path%>/css/assets/css/fontawesome-all.min.css">
 <link rel="stylesheet" href="<%=path%>/css/assets/css/themify-icons.css">
 <link rel="stylesheet" href="<%=path%>/css/assets/css/slick.css">
 <link rel="stylesheet" href="<%=path%>/css/assets/css/nice-select.css">
 <link rel="stylesheet" href="<%=path%>/css/assets/css/style.css">
 <script type="text/javascript" src="<%=path%>/layui/layui.js"></script>
 <link rel="stylesheet" href="<%=path%>/layui/css/layui.css">
-<style>
-.imgw{
-position: relative;
-}
-.word1{
-position: absolute;
-}
-</style>
 </head>
 <body>
 	<div class="layui-carousel" id="test" >

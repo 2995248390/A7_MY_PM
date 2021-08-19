@@ -46,7 +46,7 @@ public class LoginServlet extends BaseServlet {
 			}
 			 req.getSession().setAttribute("userinfo",userinfo);
 			 String sysmenu = services.getMenuTree(systype);
-			 req.setAttribute("sysmenu", sysmenu);
+			 req.getSession().setAttribute("sysmenu", sysmenu);
 			 return "main.jsp";
 		}else {
 			//如果是用户登录出错来到这就有flag=8,退出来到这,flag=0;

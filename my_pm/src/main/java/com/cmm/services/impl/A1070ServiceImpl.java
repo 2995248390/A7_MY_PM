@@ -1,5 +1,6 @@
 package com.cmm.services.impl;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -73,6 +74,5 @@ public class A1070ServiceImpl extends JdbcServicesSupport {
 		sql.append("where  uid =?");
 		paramList.add(uid);
 		return this.executeUpdate(sql.toString(), paramList.toArray())>0;
-		
 	}
 }

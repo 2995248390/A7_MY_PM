@@ -1,18 +1,26 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e"%>
+<%String path = request.getContextPath();%>
 <html>
 <head>
-<%
-String path = request.getContextPath();
-%>
 <style type="text/css">
 @IMPORT url("<%=path%>/css/wangcss/style.css");
 </style>
-<script>
-		if(${empty msg}){
-			alte(${msg})
-		}
+<script type="text/javascript" src="<%=path%>/layui/layui.js"></script>
+<link rel="stylesheet" href="<%=path%>/layui/css/layui.css">
+<script type="text/javascript">
+		if(${msg!=null}){
+			if(${msg==1}){
+			layer.open({
+				content:"修改成功"
+			});
+			}else{
+			layer.open({
+				content:"修改失败"
+			});
+			}
+		}            
 </script>
 <style>
 caption {

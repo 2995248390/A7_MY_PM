@@ -55,9 +55,10 @@ table tr:nth-child(even) {
 			<div class="col-md-6 ml-auto">
 				<div class="detail-box">
 					<h1>
-						欢迎来到${doc.clinicname } <br>
+						<span>欢迎来到${doc.clinicname }</span><br>
+						<span> 诊所:${doc.clinicdes}</span><br>
+						<span>医生:${doc.description }</span>
 					</h1>
-					<p>${doc.description }</p>
 					<div>
 						<a href="<%=path%>/c1022.htm?did=${doc.did}" class="slider-link">
 							挂号 </a> <a href="<%=path%>/C1/C1020.jsp" class="slider-link"> 返回
@@ -76,6 +77,12 @@ table tr:nth-child(even) {
 							<img src="<%=path%>/images/s1.jpg" alt="">
 							<h5>擅长领域</h5>
 							<p>${doc.specialty }</p>
+						</div>
+						<div class="detail-box">
+							<img src="<%=path%>/images/s1.jpg" alt="">
+							<h5>地址</h5>
+							<p>${doc.clinicaddress }</p>
+							<a href="<%=path%>/c1090.htm?did=${doc.did}">查看地址</a>
 						</div>
 						<div class="detail-box">
 							<img src="<%=path%>/images/s2.jpg" alt="">

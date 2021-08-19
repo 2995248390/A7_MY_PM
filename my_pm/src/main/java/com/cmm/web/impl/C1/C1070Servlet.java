@@ -36,7 +36,7 @@ public class C1070Servlet extends BaseServlet
 		request.setAttribute("qfinishappraise", Tools.getOptions("finishappraise"));
 		Map<String,String> userinfo=new HashMap<>();
 		userinfo=(Map)request.getSession().getAttribute("userinfo");		
-		//System.out.println("userinfo="+userinfo);		
+		System.out.println("userinfo="+userinfo);		
 		C1070ServicesImpl services=new C1070ServicesImpl(this.parseRequest(request));		
 		String uid=userinfo.get("uid");
 		//System.out.println("uid:"+uid);

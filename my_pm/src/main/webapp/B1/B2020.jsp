@@ -63,6 +63,10 @@
 	    ,before: function(obj){
 	      //预读本地文件示例，不支持ie8
 	      obj.preview(function(index, file, result){
+	    	  $('#demo1').css({
+		    		'width':'200px',
+		    		'height':'200px'
+		    	})
 	        $('#demo1').attr('src', result); //图片链接（base64）
 	      });
 	      
@@ -105,6 +109,10 @@
 		    ,before: function(obj){
 		      //预读本地文件示例，不支持ie8
 		      obj.preview(function(index, file, result){
+		    	  $('#demo2').css({
+			    		'width':'200px',
+			    		'height':'200px'
+			    	})
 		        $('#demo2').attr('src', result); //图片链接（base64）
 		      });
 		      

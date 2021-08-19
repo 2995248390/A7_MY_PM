@@ -61,7 +61,12 @@ layui.use(['upload', 'element', 'layer'], function(){
 	    ,before: function(obj){
 	      //预读本地文件示例，不支持ie8
 	      obj.preview(function(index, file, result){
-	        $('#demo1').attr('src', result); //图片链接（base64）
+	    	$('#demo1').css({
+	    		'width':'200px',
+	    		'height':'200px'
+	    	})
+	        $('#demo1').attr('src', result); 
+	       //图片链接（base64）
 	      });
 	      
 	      element.progress('demo', '0%'); //进度条复位

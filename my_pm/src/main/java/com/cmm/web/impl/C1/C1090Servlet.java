@@ -32,7 +32,6 @@ public class C1090Servlet extends BaseServlet
 		//3.将查询结果保存到request中
 		if(addressMap.size()==0)
 		{
-			
 			request.setAttribute("addressMap", addressMap);
 		}
 		int choice=Integer.parseInt(request.getParameter("path"));

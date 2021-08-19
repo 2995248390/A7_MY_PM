@@ -54,6 +54,9 @@ public class CheckFilter extends HttpFilter{
 		            ||path.endsWith("C1072.jsp")
 		            ||path.endsWith("C1073.jsp")
 		            ||path.endsWith("C1080.jsp")
+		            ||path.endsWith("C1090.jsp")
+		            ||path.endsWith("C1091.jsp")
+		            ||path.endsWith("C1092.jsp")
 		        ){
 		            //不需要认证，直接放行
 		            chain.doFilter(req,res);

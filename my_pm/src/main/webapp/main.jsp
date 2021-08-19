@@ -20,16 +20,7 @@
 }
 </style>
 <script type="text/javascript">
-	if(${userinfo==null}){
-		$.ajax({
-			url:'main.htm',
-			type:'post',
-			async:false,
-			success:function(data){
-				$(".layout_left_menu").html(data)
-			}
-		});
-	};
+	
 	$(".left").toggle();
 </script>
 </head>
@@ -63,7 +54,9 @@
 			</a>
 			<ul class="dropdown-menu-uu" style="display: none" id="ad_setting_ul">
 				<li class="ad_setting_ul_li"><a href="<%=path%>/A1/A1070.jsp"
-					target="menuFrame"><i class="icon-user glyph-icon"></i> 个人中心 </a></li>
+					target="menuFrame"><i class="icon-home glyph-icon"></i> 个人中心 </a></li>
+				<li class="ad_setting_ul_li"><a href="<%=path%>/A1/A1071.jsp"
+					target="menuFrame"><i class="icon-user glyph-icon"></i> 更改头像 </a></li>
 				<li class="ad_setting_ul_li"><a href="<%=path%>/a1081.htm"
 					target="menuFrame"><i class="icon-gear glyph-icon"></i> 账号安全 </a></li>
 				<li class="ad_setting_ul_li"><a href="<%=path%>/login.htm?path=1"><i
@@ -86,7 +79,6 @@
 			<div class="layout_left_menu">${sysmenu}</div>
 		</div>
 	</div>
-	<div class="Switch"></div>
 	<!-- 工作区 -->
 	<div id="layout_right_content" class="layout_right_content">
 
@@ -102,5 +94,20 @@
 	<div class="layout_footer">
 		<p>@ A7.Community health management system</p>
 	</div>
+<script type="text/javascript">
+if(${userinfo==null}){
+	$.ajax({
+		url:'main.htm',
+		type:'post',
+		async:false,
+		error:function(){
+			alert("网络错误")
+		},
+		success:function(data){
+			$(".layout_left_menu").html(data);
+		}
+	});
+};
+</script>
 </body>
 </html>

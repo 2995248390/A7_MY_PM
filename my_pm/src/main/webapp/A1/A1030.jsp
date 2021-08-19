@@ -75,10 +75,18 @@ ${ins }
        <td><input type="text" name="qtruename" ></td>
        <td>所属社区</td>
        <td>
-       <select  name="qcommunity"  >
+       <select  name="qcommunity" >
        		<option value="">--不限--</option>
+       		
        		<c:forEach var="com" items="${occommunity }" >
-       		<option value="${com.value }">${com.name }</option>
+       		<c:choose>
+       		<c:when test="${param.qcommunity==com.value }">
+       		<option value="${com.value }" selected="selected">${com.name }</option>
+       		</c:when>
+       		<c:otherwise>
+       		<option value="${com.value }" >${com.name }</option>
+       		</c:otherwise>
+       		</c:choose>
       		</c:forEach>
        </select>
        </td>
@@ -94,11 +102,11 @@ ${ins }
        </td>
        <td>记录时间[B]</td>
        <td>      
-         <input type="date" name="bbgeintime" id="bbgeintime" />
+         <input type="date" name="bbegintime" value="${param.bbegintime }"/>
        </td>
        <td>记录时间[E]</td>
        <td>
-         <input type="date" name="ebgeintime"/>
+         <input type="date" name="ebegintime" value="${param.ebegintime }"/>
        </td>
 	   <td colspan="2"></td>
     </tr>

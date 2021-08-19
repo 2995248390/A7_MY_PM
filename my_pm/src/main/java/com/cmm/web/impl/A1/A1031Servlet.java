@@ -32,6 +32,7 @@ public class A1031Servlet extends BaseServlet
 	protected String execute(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
 		request.setAttribute("occommunity", Tools.getOptions("community"));
+		System.out.println("123");
 		A1030ServicesImpl services=new A1030ServicesImpl(this.parseRequest(request));
 		List<Map<String,String>> rows=services.queryRecord();
 		if(rows.size()>0)

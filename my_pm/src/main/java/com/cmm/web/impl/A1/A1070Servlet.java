@@ -17,7 +17,7 @@ import com.cmm.system.tools.Tools;
  *
  * Author:        罗航
  *
- * Description:   编辑页面.获得编辑需要的默认数据
+ * Description:   个人信息修改.数据初始化显示
  *
  */
 @WebServlet("/a1070.htm")
@@ -28,7 +28,6 @@ public class A1070Servlet extends BaseServlet {
 		//此请求为了获得编辑需要的下拉数据,单选数据
 		request.setAttribute("ocnation", Tools.getOptions("nation"));
 		request.setAttribute("occommunity", Tools.getOptions("community"));
-		request.setAttribute("ocsex", Tools.getOptions("sex"));
 		//到编辑页面
 		return "A1/A1070.jsp?type=1";
 	}

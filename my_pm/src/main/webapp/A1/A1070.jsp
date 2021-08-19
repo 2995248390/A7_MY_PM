@@ -1,18 +1,26 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e"%>
+<%String path = request.getContextPath();%>
 <html>
 <head>
-<%
-String path = request.getContextPath();
-%>
 <style type="text/css">
 @IMPORT url("<%=path%>/css/wangcss/style.css");
 </style>
-<script>
-		if(${empty msg}){
-			alte(${msg})
-		}
+<script type="text/javascript" src="<%=path%>/layui/layui.js"></script>
+<link rel="stylesheet" href="<%=path%>/layui/css/layui.css">
+<script type="text/javascript">
+		if(${msg!=null}){
+			if(${msg==1}){
+			layer.open({
+				content:"修改成功"
+			});
+			}else{
+			layer.open({
+				content:"修改失败"
+			});
+			}
+		}            
 </script>
 <style>
 caption {
@@ -59,21 +67,6 @@ tr td:nth-child(even) {
 </style>
 </head>
 <body>
-	<!-- 上传图片 
-	<div class="layui-upload">
-		  <button type="button" class="layui-btn" id="test1">上传图片</button>
-		  <div class="layui-upload-list">
-		    <img class="layui-upload-img" id="demo1">
-		    <p id="demoText"></p>
-		  </div>
-		  <div style="width: 95px;">
-		    <div class="layui-progress layui-progress-big" lay-showpercent="yes" lay-filter="demo">
-		      <div class="layui-progress-bar" lay-percent=""></div>
-		    </div>
-		  </div>
-	</div>   
-	<a name="list-progress"> </a>
-	-->
 	<form id="myform" action="" method="post">
 		<table>
 			<caption>
@@ -107,7 +100,7 @@ tr td:nth-child(even) {
     							${userinfo.account}
     					</c:when>
 						<c:otherwise>
-							<input type="text" value="${userinfo.account}" readonly>
+							<input type="text" name="account" value="${userinfo.account}" readonly>
 						</c:otherwise>
 					</c:choose></td>
 				<td>用户类型:</td>
@@ -127,8 +120,12 @@ tr td:nth-child(even) {
     						${userinfo.cnnation}
     					</c:when>
 						<c:otherwise>
-							<e:select value="ocnation" name="nation"
-								defval="${userinfo.cnnation}" />
+						<select name="nation">
+						<option value="${userinfo.nation }" selected="selected">${userinfo.cnnation }</option>
+						<c:forEach var="nation" items="${ocnation }">
+						<option value="${nation.value}">${nation.name }</option>
+						</c:forEach>
+						</select>
 						</c:otherwise>
 					</c:choose></td>
 				<td>性别:</td>
@@ -137,7 +134,16 @@ tr td:nth-child(even) {
     						${userinfo.cnsex}
     					</c:when>
 						<c:otherwise>
-							<e:radio value="ocsex" name="sex" defval="${userinfo.sex}" />
+							<c:choose>
+							<c:when test="${userinfo.sex=='1'}">
+							<input type="radio" name="sex" value="1" checked="checked">男
+							<input type="radio" name="sex" value="2">女
+							</c:when>
+							<c:otherwise>
+							<input type="radio" name="sex" value="1" >男
+							<input type="radio" name="sex" value="2" checked="checked">女 
+							</c:otherwise>
+							</c:choose>
 						</c:otherwise>
 					</c:choose></td>
 			</tr>
@@ -145,10 +151,10 @@ tr td:nth-child(even) {
 				<td>生日:</td>
 				<td><c:choose>
 						<c:when test="${empty param.type}">
-    				${userinfo.birthday}
+    						${userinfo.birthday}
     					</c:when>
 						<c:otherwise>
-							<input type="date" value="${userinfo.birthday}">
+							<input type="date" name="birthday" value="${userinfo.birthday}">
 						</c:otherwise>
 					</c:choose></td>
 				<td>手机号:</td>
@@ -157,7 +163,7 @@ tr td:nth-child(even) {
     						${userinfo.phonenumber}
     					</c:when>
 						<c:otherwise>
-							<input type="text" value="${userinfo.phonenumber}">
+							<input type="text" name="phonenumber" value="${userinfo.phonenumber}">
 						</c:otherwise>
 					</c:choose></td>
 			</tr>
@@ -168,7 +174,7 @@ tr td:nth-child(even) {
     							${userinfo.address}
     					</c:when>
 						<c:otherwise>
-							<input type="text" value="${userinfo.address}">
+							<input type="text" name="address" value="${userinfo.address}">
 						</c:otherwise>
 					</c:choose></td>
 				<td>邮箱:</td>
@@ -177,7 +183,7 @@ tr td:nth-child(even) {
     						${userinfo.mail}
     					</c:when>
 						<c:otherwise>
-							<input type="text" value="${userinfo.mail}">
+							<input type="text" name="mail" value="${userinfo.mail}" readonly>
 						</c:otherwise>
 					</c:choose></td>
 			</tr>
@@ -197,21 +203,25 @@ tr td:nth-child(even) {
     						${userinfo.cncommunity}
     					</c:when>
 						<c:otherwise>
-							<e:select value="occommunity" name="community"
-								defval="${userinfo.cncommunity}" />
+						<select name="community">
+						<option value="${userinfo.community}">${userinfo.cncommunity}</option>
+						<c:forEach var="community" items="${occommunity }">
+						<option value="${community.value }">${community.name }</option>
+						</c:forEach>
+						</select>
 						</c:otherwise>
 					</c:choose></td>
 			</tr>
 			<tr>
 				<td>个人签名:</td>
-				<td colspan="4"><c:choose>
+				<td colspan="4">
+					<c:choose>
 						<c:when test="${empty param.type}">
-							<e:textarea rows="5" cols="130" name="memo"
-								defval="${userinfo.memo }" />
+							<textarea rows="5" cols="130" name="memo"
+								 disabled="disabled">${userinfo.memo}</textarea>
 						</c:when>
 						<c:otherwise>
-							<e:textarea rows="5" cols="130" name="memo"
-								defval="${userinfo.memo }" />
+							<textarea rows="5" cols="130" name="memo">${userinfo.memo }</textarea>
 						</c:otherwise>
 					</c:choose></td>
 			</tr>
@@ -224,7 +234,6 @@ tr td:nth-child(even) {
 				</td>
 			</tr>
 		</table>
-		<input type="hidden" name="account" value="${userinfo.account }">
 		<input type="hidden" name="upass" value="${userinfo.upass }">
 	</form>
 </body>

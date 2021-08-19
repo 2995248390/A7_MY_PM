@@ -26,6 +26,8 @@ public class CheckFilter extends HttpFilter{
 		            ||path.endsWith(".eot")
 		            ||path.endsWith(".ttf")
 		            ||path.endsWith(".woff")
+		            ||path.endsWith(".woff2")
+		            ||path.endsWith(".css2")
 		            ||path.endsWith("login.jsp")
 		            ||path.endsWith("login.htm")
 		            ||path.endsWith("register.htm")
@@ -35,12 +37,14 @@ public class CheckFilter extends HttpFilter{
 		            ||path.endsWith("main.htm")
 		            ||path.endsWith("information.jsp")
 		            ||path.endsWith("errorpage.jsp")
-		            ||path.endsWith("c1020.htm")
-		            ||path.endsWith("c1021.htm")
-		            ||path.endsWith("c1022.htm")
-		            ||path.endsWith("c1023.htm")
-		            ||path.endsWith("c1024.htm")
-		            ||path.endsWith("c1060.htm")
+		            ||path.endsWith("c1020.htm")	//浏览医生
+		            ||path.endsWith("docimg.htm")
+		            ||path.endsWith("clinicimg.htm")
+		            ||path.endsWith("c1021.htm")	//医生详细信息
+		            ||path.endsWith("c1022.htm")	//挂号页面
+		            ||path.endsWith("c1023.htm")	//挂号操作
+		            ||path.endsWith("c1024.htm")	//挂号单查看
+		            ||path.endsWith("c1060.htm")	//资讯
 		            ||path.endsWith("c1070.htm")
 		            ||path.endsWith("c1071.htm")
 		            ||path.endsWith("c1080.htm")

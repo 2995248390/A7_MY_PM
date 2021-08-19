@@ -1602,54 +1602,7 @@ hr {
 	position: relative
 }
 
-@
--webkit-keyframes bounce { 0%{
-	transform: translateY(-3px)
-}
 
-50
-%
-{
-transform
-:
-translateY(
-3px
-)
-}
-100
-%
-{
-transform
-:
-translateY(
--3px
-)
-}
-}
-@
-keyframes bounce { 0%{
-	transform: translateY(-3px)
-}
-
-50
-%
-{
-transform
-:
-translateY(
-3px
-)
-}
-100
-%
-{
-transform
-:
-translateY(
--3px
-)
-}
-}
 .sticky-bar {
 	left: 0;
 	margin: auto;
@@ -1713,147 +1666,6 @@ translateY(
 	-o-animation-timing-function: linear
 }
 
-@
--webkit-keyframes float-bob { 0%{
-	-webkit-transform: translateY(-20px);
-	transform: translateY(-20px)
-}
-
-50
-%
-{
--webkit-transform
-:
-translateY(
--10px
-);
-transform
-:
-translateY(
--10px
-)
-}
-100
-%
-{
--webkit-transform
-:
-translateY(
--20px
-);
-transform
-:
-translateY(
--20px
-)
-}
-}
-.heartbeat {
-	animation: heartbeat 1s infinite alternate
-}
-
-@
--webkit-keyframes heartbeat {
-	to {-webkit-transform: scale(1.03);
-	transform: scale(1.03)
-}
-
-}
-.rotateme {
-	-webkit-animation-name: rotateme;
-	animation-name: rotateme;
-	-webkit-animation-duration: 30s;
-	animation-duration: 30s;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear
-}
-
-@
-keyframes rotateme {
-	from {-webkit-transform: rotate(0deg);
-	transform: rotate(0deg)
-}
-
-to {
-	-webkit-transform: rotate(360deg);
-	transform: rotate(360deg)
-}
-
-}
-@
--webkit-keyframes rotateme {
-	from {-webkit-transform: rotate(0deg)
-}
-
-to {
-	-webkit-transform: rotate(360deg)
-}
-
-}
-.slick-initialized .slick-slide {
-	outline: 0
-}
-
-.running {
-	animation: nudge 10s linear infinite alternate
-}
-
-@
-keyframes nudge { 0%,100%{
-	transform: translate(0, 0)
-}
-
-50
-%
-{
-transform
-:
-translate(
--100px
-,
-0
-);
-@media ( max-width : 575px) {
-	transform
-	:translate
-	(
-	-50px
-	,
-	0
-	)
-	 
-	!
-	important
-}
-
-}
-80
-%
-{
-transform
-:
-translate(
-100px
-,
-0
-);
-@media ( max-width : 575px) {
-	transform
-	:translate
-	(
-	50px
-	,
-	0
-	)
-	 
-	!
-	important
-}
-
-}
-}
 .nice-select {
 	line-height: 30px;
 	border: 1px solid #eaeaea;
@@ -3532,9 +3344,17 @@ translate(
 }
 
 .slider-bg2 {
+	background-image: url(../img/hero/his1.jpg)
+}
+.slider-bg3 {
 	background-image: url(../img/hero/his2.jpg)
 }
-
+.slider-bg4 {
+	background-image: url(../img/hero/his3.jpg)
+}
+.slider-bg5 {
+	background-image: url(../img/hero/his4.jpg)
+}
 .slider-area {
 	background-color: #FCF2EB
 }

@@ -44,25 +44,13 @@ ul {
 						<div class="col-lg-6 col-md-6">
 							<div class="single-blogs mb-30">
 								<div class="blog-img">
-									<c:choose>
-										<c:when test="${doc.sex==1}">
-											<a href="<%=path%>/c1021.htm?did=${doc.did}"> <img
-												src="<%=path%>/images/doc1.jpg"
-												style="width: 300px; height: 200px;">
-											</a>
-										</c:when>
-										<c:otherwise>
-											<a href="<%=path%>/c1021.htm?did=${doc.did}"> <img
-												src="<%=path%>/images/doc2.jpg"
-												style="width: 300px; height: 200px;">
-											</a>
-										</c:otherwise>
-									</c:choose>
+									<a href="<%=path%>/c1021.htm?did=${doc.did}">
+									<img src="<%=path%>/docimg.htm?did=${doc.did}" style="width: 300px; height: 200px;">
+									</a>
 									<ul list-style="none">
 										<li>擅长领域:${doc.specialty }</li>
 										<li>医生职称:${doc.cnlevel }</li>
 										<li>性别:${doc.cnsex }</li>
-										<li>称号:${doc.cnlevel }</li>
 									</ul>
 								</div>
 								<div class="blog-caption">

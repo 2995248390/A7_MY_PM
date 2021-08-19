@@ -21,7 +21,7 @@ def selectFun():
     
     for i in range(1, len(sys.argv)):
         a.append((sys.argv[i]))
-    result=0
+    result="false"
     choice=a.pop(0)
     try:
         if choice == fun1:
@@ -34,7 +34,7 @@ def selectFun():
             result=getPath(*a)
             print(result)
         else:
-            print(-1)
+            print("false")
     except Exception as e:
         print(e)
         print(result)
@@ -127,7 +127,7 @@ def getPath(origin:str,destination:str,isindoor:str="1",AlternativeRout:str='1',
 
 
 if __name__ == '__main__':
-    #selectFun()
+    selectFun()
     
     # try:
     #     print(123)
@@ -142,8 +142,8 @@ if __name__ == '__main__':
     #     pass
 
     #地址转经纬
-    locate=getLongitudeandLatitude('重庆市南岸区崇文路二号重庆邮电大学27栋宿舍|重庆市南岸区崇文路22号附7号泰康药房', batch='1')
-    print(locate)
+    # locate=getLongitudeandLatitude('重庆市南岸区崇文路22号附7号泰康药房', batch='true')
+    # print(locate)
 
     # address=getAddress(locate) 
     # print(address)

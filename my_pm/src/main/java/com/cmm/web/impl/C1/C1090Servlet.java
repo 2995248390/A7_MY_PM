@@ -19,6 +19,7 @@ public class C1090Servlet extends BaseServlet
 	@Override
 	protected String execute(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
+		String KEY="701ea0663a8a11bddf52141b03f45691";
 		String path = this.getServletContext().getRealPath("python/getAddress.py");
 		System.out.println("path="+path);
 		C1090ServicesImpl services=new C1090ServicesImpl(this.parseRequest(request));
@@ -30,20 +31,36 @@ public class C1090Servlet extends BaseServlet
 		//2.获取地址中间坐标，作为地图中心
 		
 		//3.将查询结果保存到request中
-		if(addressMap.size()==0)
+		if(addressMap.size()!=0)
 		{
 			request.setAttribute("addressMap", addressMap);
+			request.setAttribute("KEY", KEY);
 		}
-		int choice=Integer.parseInt(request.getParameter("path"));
+		int choice=0;
+		if(request.getParameter("path")!=null)
+			choice=Integer.parseInt(request.getParameter("path"));
+		//步行路线
 		if(choice==1)
 		{
-			
+			Map<String,String> location=services.getCenter(addressMap, path);
+			request.setAttribute("location", location);
+			System.out.println("addressMap:"+addressMap);
+			System.out.println("location:"+location);
+			return "C1/C1091.jsp";
 		}
+		//公交路线
+		else if(choice==2)
+		{
+			Map<String,String> location=services.getCenter(addressMap, path);
+			request.setAttribute("location", location);
+			return "C1/C1090.jsp";
+		}
+		//用户预览
 		else
 		{
-			
+			Map<String,String> location=services.getCenter(addressMap, path);
+			request.setAttribute("location", location);
+			return "C1/C1091.jsp";
 		}
-		System.out.println(services.getLocation(path));
-		return null;
 	}
 }

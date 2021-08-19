@@ -75,20 +75,4 @@ public class A1070ServiceImpl extends JdbcServicesSupport {
 		paramList.add(uid);
 		return this.executeUpdate(sql.toString(), paramList.toArray())>0;
 	}
-	//ÓÃ»§Í·Ïñ´æ´¢
-	public boolean saveUserImg(String id,InputStream img) throws Exception {
-		String sql = "update user set userimg=?  where uid=? ";
-		return this.executeUpdateAndImg(sql,img,id)>0;
-	}
-	//Ò½ÉúÍ·Ïñ´æ´¢
-	public boolean saveDocImg(String id,InputStream img) throws Exception {
-		String sql = "update doc set docimg=?  where uid=? ";
-		return this.executeUpdateAndImg(sql,img,id)>0;
-	}
-	//ÕïËùÍ¼Æ¬´æ´¢
-	public boolean saveClinicImg(String id,InputStream img) throws Exception {
-		String sql = "update doc set clinicimg=?  where uid=? ";
-		return this.executeUpdateAndImg(sql,img,id)>0;
-	}
-	
 }

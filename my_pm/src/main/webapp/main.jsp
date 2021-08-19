@@ -20,16 +20,7 @@
 }
 </style>
 <script type="text/javascript">
-	if(${userid==null}){
-		$.ajax({
-			url:'main.htm',
-			type:'post',
-			async:false,
-			success:function(data){
-				$(".layout_left_menu").html(data)
-			}
-		});
-	};
+	
 	$(".left").toggle();
 </script>
 </head>
@@ -88,7 +79,6 @@
 			<div class="layout_left_menu">${sysmenu}</div>
 		</div>
 	</div>
-	<div class="Switch"></div>
 	<!-- ¹¤×÷Çø -->
 	<div id="layout_right_content" class="layout_right_content">
 
@@ -104,5 +94,20 @@
 	<div class="layout_footer">
 		<p>@ A7.Community health management system</p>
 	</div>
+<script type="text/javascript">
+if(${userinfo==null}){
+	$.ajax({
+		url:'main.htm',
+		type:'post',
+		async:false,
+		error:function(){
+			alert("ÍøÂç´íÎó")
+		},
+		success:function(data){
+			$(".layout_left_menu").html(data);
+		}
+	});
+};
+</script>
 </body>
 </html>

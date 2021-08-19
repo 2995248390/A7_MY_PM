@@ -1,9 +1,7 @@
 <%@ page language="java" pageEncoding="GBK"%>
 <html>
 <head>
-<%
-String path = request.getContextPath();
-%>
+<%String path = request.getContextPath();%>
 <link href="<%=path%>/css/errorcss/style.css" rel="stylesheet"
 	type="text/css" media="all" />
 <link href="<%=path%>/css/errorcss/font-awesome.css" rel="stylesheet"

@@ -2,8 +2,6 @@
 	url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap")
 	;
 /* fonts import */
-@import url("../fonts/octin_sports_rg.ttf");
-
 body {
 	font-family: "Poppins", sans-serif;
 	color: #0c0c0c;

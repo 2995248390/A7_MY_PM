@@ -1,4 +1,4 @@
-package com.cmm.web.impl.D1;
+package com.cmm.web.impl.S1;
 
 import com.cmm.services.impl.S1000ServiceImpl;
 import com.cmm.web.support.BaseServlet;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * Author:        罗航
  *
- * Description:  	用户照片
+ * Description:  	用户照片读取
  *
  */
 @WebServlet("/userimg.htm")

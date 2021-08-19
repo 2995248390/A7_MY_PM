@@ -10,44 +10,33 @@
 <link href="<%=path%>/css/doccss/font-awesome.min.css" rel="stylesheet" />
 <link href="<%=path%>/css/doccss/style.css" rel="stylesheet" />
 <link href="<%=path%>/css/doccss/responsive.css" rel="stylesheet" />
-<style>
-.contact_section {
-	position: inherit;
+<script type="text/javascript" src="<%=path%>/layui/layui.js"></script>
+<link rel="stylesheet" href="<%=path%>/layui/css/layui.css">
+<style type="text/css">
+body{
+background: url(<%=path%>/images/contact-bg.jpg) no-repeat bottom;
+background-size: cover;
 }
-
-.filter-box {
-	width: 400px;
-	height: 34px;
-	background-color: #ffffff;
-	border: solid 1px #dcdcdc;
-	font-family: Roboto;
-	font-size: 12px;
-	font-weight: normal;
-	font-style: normal;
-	font-stretch: normal;
-	letter-spacing: normal;
-	text-align: left;
-	color: #3d3d3d;
-	padding-left: 10px;
-	border-color: #dcdcdc;
-	-webkit-appearance: none;
+body:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
 }
-
-select {
-	background: url("http://images.cnblogs.com/cnblogs_com/webqiand/636997/o_select.png") no-repeat scroll right center transparent;
-	background-position: 222px 9px; 4
-	font-family: Roboto;
-	font-size: 12px;
-	color: #3d3d3d;
-	background-repeat: no-repeat;
+dd{
+color:#000;
+}
+.layui-form-label{
+padding:15px 15px;
 }
 </style>
 </head>
 <body>
 	<section class="contact_section layout_padding">
-		<div class="contact_bg_box">
-			<img src="<%=path%>/images/contact-bg.jpg" alt="">
-		</div>
 		<div class="container">
 			<div class="heading_container heading_center">
 				<h2>
@@ -57,16 +46,20 @@ select {
 			<div class="">
 				<div class="row">
 					<div class="col-md-7 mx-auto">
-						<form action="<%=path%>/c1023.htm?did=${param.did}" method="post">
+						<form  class="layui-form" action="<%=path%>/c1023.htm?did=${param.did}" method="post">
 							<div class="contact_form-container">
-								<div class="time">
-									<select name="appiontment" class="filter-box">
-										<option selected="selected" value="">==选择时间==</option>
+								<!-- 时间下拉列表 -->
+								 <div class="layui-form-item">
+								    	<label class="layui-form-label" style="font-size:20px;font-weight:bold; ">时间:</label>
+								    <div class="layui-input-block">
+								      <select name="nation" lay-filter="aihao">
+								        	<option selected="selected" value="">==选择时间==</option>
 										<c:forEach var="time" items="${timeList }">
 											<option value="${time.appiontment}">${time.getTime}</option>
 										</c:forEach>
-									</select>
-								</div>
+	    							  </select>
+	    							</div>
+	 							 </div>
 								<div class="btn-box ">
 									<button type="submit">提交</button>
 								</div>

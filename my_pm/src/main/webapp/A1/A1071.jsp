@@ -1,39 +1,51 @@
 <%@ page language="java"   pageEncoding="GBK"%>
-<%
-String path = request.getContextPath();
-%>
+<%String path = request.getContextPath();%>
 <html>
 <head>
 <script type="text/javascript" src="<%=path%>/layui/layui.js"></script>
 <link rel="stylesheet" href="<%=path%>/layui/css/layui.css">
 <style>
+.title{
+	width:200px;
+	height:50px;
+	margin: 10 auto;
+}
 .main{
-margin:0px auto;
+width:800x;
+height:auto;
+border:1px solid black;
+border-radius: 20px;
+margin:10 auto;
+}
+.layui-upload {
+width:100px;
+margin:0 auto;
 }
 </style>
 <script type="text/javascript">
 	function fh(){
-		location.href="<%=path%>/a1070.htm"
+		window.open("<%=path%>/main.jsp","_parent")
 	}
 </script>
 </head>
 <body>
+	<div class="title"><h2>选择您的图片</h2></div>
 	<div class="main">
-	<!-- 上传图片 -->
-	<div class="layui-upload">
-		  <button type="button" class="layui-btn" id="test1">上传图片</button>
-		  <div class="layui-upload-list">
-		    <img class="layui-upload-img" id="demo1">
-		    <p id="demoText"></p>
-		  </div>
-		  <div style="width: 95px;">
-		    <div class="layui-progress layui-progress-big" lay-showpercent="yes" lay-filter="demo">
-		      <div class="layui-progress-bar" lay-percent=""></div>
-		    </div>
-		  </div>
-	</div>   
-	<a name="list-progress"> </a>
-	  <button type="button" class="layui-btn layui-btn-lg layui-btn-normal" onclick="fh()">返回</button>
+			<!-- 上传图片 -->
+			<div class="layui-upload">
+				  <button type="button" class="layui-btn" id="test1">上传图片</button>
+				  <div class="layui-upload-list">
+				    <img class="layui-upload-img" id="demo1">
+				    <p id="demoText"></p>
+				  </div>
+				  <div style="width: 95px;">
+				    <div class="layui-progress layui-progress-big" lay-showpercent="yes" lay-filter="demo">
+				      <div class="layui-progress-bar" lay-percent=""></div>
+				    </div>
+				  </div>
+				  <button type="button" class="layui-btn layui-btn-lg layui-btn-normal" onclick="fh()">返回</button>
+			</div>   
+			<a name="list-progress"> </a>	  
 	</div>
 <script type="text/javascript">
 layui.use(['upload', 'element', 'layer'], function(){
@@ -44,7 +56,7 @@ layui.use(['upload', 'element', 'layer'], function(){
 	//常规使用 - 普通图片上传
 	  var uploadInst = upload.render({
 	    elem: '#test1'
-	    ,url: '<%=path%>/a1072.htm?uid=${userinfo.uid}' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+	    ,url: '<%=path%>/s1001.htm?uid=${userinfo.uid}' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
 	    ,field:'userimg'
 	    ,before: function(obj){
 	      //预读本地文件示例，不支持ie8

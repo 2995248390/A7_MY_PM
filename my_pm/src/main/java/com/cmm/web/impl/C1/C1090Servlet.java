@@ -1,8 +1,15 @@
 package com.cmm.web.impl.C1;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+/**
+ * FileName:      C1090Servlet
+ *
+ * FileType:      Servlet
+ *
+ * Date:          2021年08月19日
+ *
+ * Author:        张文江
+ *
+ * Description:   获取用户与医生地址
+ */
 import java.util.HashMap;
 import java.util.Map;
 

@@ -62,6 +62,10 @@ public class A1070ServiceImpl extends JdbcServicesSupport {
 			sql.append("phonenumber=?,");
 			paramList.add(phonenumber);
 		}
+		if(this.isNotNull(address)) {
+			sql.append("address=?,");
+			paramList.add(address);
+		}
 		if(this.isNotNull(community)) {
 			sql.append("community=?,");
 			paramList.add(community);

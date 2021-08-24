@@ -33,15 +33,27 @@ public class C1090Servlet extends BaseServlet
 		//1.获取挂号单,得到用户居住地址，与诊所地址
 		Map<String,String> userinfo=new HashMap<>();
 		userinfo=(Map)request.getSession().getAttribute("userinfo");
+		System.out.println("userinfo:"+userinfo);
 		String uid=userinfo.get("uid");
+		System.out.println("uid:"+uid);
 		Map<String,String> addressMap=services.getAddress(uid);
-		//2.获取地址中间坐标，作为地图中心
+		System.out.println("addressMap1:"+addressMap);
 		
 		//3.将查询结果保存到request中
-		if(addressMap.size()!=0)
+		if(addressMap!=null)
 		{
 			request.setAttribute("addressMap", addressMap);
 			request.setAttribute("KEY", KEY);
+		}
+		else
+		{
+			//没有查询到数据 location.centerAddress
+			Map<String,String> location=new HashMap<>();
+			Map<String,String> address=services.getLocation(userinfo.get("address"), path);
+			location.put("centerAddress", address.get("address"));
+			request.setAttribute("location", location);
+			request.setAttribute("KEY", KEY);
+			return "C1/C1091.jsp";
 		}
 		int choice=0;
 		if(request.getParameter("path")!=null)

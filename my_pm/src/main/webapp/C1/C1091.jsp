@@ -1,4 +1,5 @@
 <%@ page language="java"  pageEncoding="GBK"%>
+<%String path = request.getContextPath(); %>
 <!doctype html>
 <html>
 <head>
@@ -38,9 +39,12 @@
     <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
 </head>
 <body>
-<div id="container"><button>返回</button></div>
-<div id="panel"><button>返回</button></div>
-<div><button>返回</button></div>
+<div id="container"></div>
+<div id="panel"></div>
+<div>
+	<input type="submit" value="返回"
+		formaction="<%=path%>/information.jsp" >
+</div>
 <script type="text/javascript">
     var map = new AMap.Map("container", {
         resizeEnable: true,

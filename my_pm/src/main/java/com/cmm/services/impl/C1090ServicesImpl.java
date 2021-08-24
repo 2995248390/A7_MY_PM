@@ -47,7 +47,8 @@ public class C1090ServicesImpl extends JdbcServicesSupport
 					.append("	 and b.did=c.did and c.begintime<=CURRENT_TIMESTAMP")
 					.append("	 and c.appointment>=CURRENT_TIMESTAMP limit 1")					 
 						 ;	
-			//System.out.println(this.getDto());		
+			System.out.println(this.getDto());	
+			System.out.println("C1090return:"+this.queryForMap(sql.toString(),uid));
 			return this.queryForMap(sql.toString(),uid);
 		}
 		else
@@ -79,6 +80,7 @@ public class C1090ServicesImpl extends JdbcServicesSupport
             //获取python文件执行结果
             while ((line = uin.readLine()) != null) {
             	String[] result1=line.split("'"); //   ('重庆市', '106.606652,29.541387')
+            	System.out.println("result:"+result1);
                 location.put("ucity", result1[1]);
                 location.put("uaddress",result1[3]);
                 String[] xy=result1[3].split(",");
@@ -119,25 +121,26 @@ public class C1090ServicesImpl extends JdbcServicesSupport
 		return location;
 	}
 	
-	public Map<String,String> getLocation(String path)throws Exception
+	public Map<String,String> getLocation(String address,String path)throws Exception
 	{	
 		
 		//转入python后用该参数判断要执行的方法
 		String funcName="getLongitudeandLatitude";
 		//执行方法中需要用到的参数，如果有多个，就写多个
 		//String param=getUserAddress();
-		String param="重庆市南岸区崇文路22号附7号";
 		String line = null;
 		Map<String,String> location=new HashMap<String,String>();
         try {        		
-	        	String[] args1 = new String[] { "C:/ProgramData/Anaconda3/python.exe",path,funcName, param };
+	        	String[] args1 = new String[] { "C:/ProgramData/Anaconda3/python.exe",path,funcName, address };
 	        	Process proc = Runtime.getRuntime().exec(args1);// 执行py文件
 	            //用输入输出流来截取结果
 	            BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 	            
 	            //获取python文件执行结果
 	            while ((line = in.readLine()) != null) {
-	                location.put("address", line);
+	            	String[] site=line.split("'");
+	            	String xy=site[3];
+	                location.put("address", xy);
 	            	System.out.println("line:"+line);
             }
             in.close();

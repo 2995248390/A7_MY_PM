@@ -30,7 +30,7 @@ public class B2010ServicesImpl extends JdbcServicesSupport{
 	{
 		StringBuilder sql=new StringBuilder()
 				.append("select x.truename, x.idcard, a.scode cnsex, x.age, b.svalue cnnation,")
-				.append("	    x.phonenumber, d.docsuggestion, d.drugmsg, d.begintime")
+				.append("	    c.onum, x.phonenumber, d.docsuggestion, d.drugmsg, d.begintime")
 				.append("  from user x, syscode a, syscode b, orderlist c, record d")
 				.append(" where d.rid = ? and d.oid = c.oid and")
 				.append("	   c.uid = x.uid and a.sname = 'sex' and")

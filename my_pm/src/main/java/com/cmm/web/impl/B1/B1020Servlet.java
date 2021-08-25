@@ -33,6 +33,7 @@ public class B1020Servlet extends BaseServlet {
 		B1020ServicesImpl services=new B1020ServicesImpl(docInfo);
 		Map<String, String> ins = services.querClin(); 
 		request.setAttribute("ins",ins);	
+		request.setAttribute("oclevel", Tools.getOptions("level"));
 		return "B1/B1020.jsp";
 	}
 

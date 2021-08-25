@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cmm.services.impl.B1011ServicesImpl;
 import com.cmm.services.impl.B1021ServicesImpl;
+import com.cmm.system.tools.Tools;
 import com.cmm.web.support.BaseServlet;
 
 /**
@@ -34,6 +35,7 @@ public class B1021Servlet extends BaseServlet {
 		String uid = dto.get("uid");
 		String msg = services.modifyCli(uid)?"修改成功":"修改失败";
 		request.setAttribute("msg", msg);
+		request.setAttribute("oclevel", Tools.getOptions("level"));
 		return "B1/B1021.jsp";
 	}
 

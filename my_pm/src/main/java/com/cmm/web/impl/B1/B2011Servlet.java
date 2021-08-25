@@ -31,6 +31,7 @@ public class B2011Servlet extends BaseServlet {
 		request.setAttribute("ocnation", Tools.getOptions("nation"));
 		B2010ServicesImpl services = new B2010ServicesImpl(this.parseRequest(request));
 		Map<String,String> ins = services.findByRid();
+		System.out.println(ins);
 		if(ins!=null)
 		{
 			request.setAttribute("ins", ins);

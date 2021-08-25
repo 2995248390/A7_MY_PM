@@ -31,6 +31,7 @@ public class B2010Servlet extends BaseServlet {
 	@Override
 	protected String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("ocnation", Tools.getOptions("nation"));
+		request.setAttribute("occommunity", Tools.getOptions("community"));
 		Map<String,String> docInfo = (Map<String, String>) request.getSession().getAttribute("userinfo");
 		String did = docInfo.get("did");
 		Map<String,String> doc = this.parseRequest(request);

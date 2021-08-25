@@ -65,21 +65,65 @@
      -->
 				<tr>
 					<td>姓名</td>
-					<td><e:text name="qname" /></td>
+					<td><input type = "text" name="qname"  value = "${param.qname}"/></td>
 					<td>身份证号</td>
-					<td><e:text name="qidcard" /></td>
+					<td><input type = "text" name="qidcard" value = "${param.qidcard}"/></td>
 					<td>性别</td>
-					<td><e:radio name="qsex" value="男:1,女:2,不限:''" defval="" /></td>
+					<td>
+						<c:choose>
+							<c:when test = "${param.qsex == 1 }">
+								<input type = "radio" name="qsex" value="1" checked="checked" />男
+								<input type = "radio" name="qsex" value="2" />女
+								<input type = "radio" name="qsex" value="" />不限
+							</c:when>
+							<c:when test = "${param.qsex == 2 }">
+								<input type = "radio" name="qsex" value="1"  />男
+								<input type = "radio" name="qsex" value="2" checked="checked"/>女
+								<input type = "radio" name="qsex" value="" />不限	
+							</c:when>
+							<c:otherwise>
+								<input type = "radio" name="qsex" value="1"  />男
+								<input type = "radio" name="qsex" value="2" />女
+								<input type = "radio" name="qsex" value="" checked="checked"/>不限
+							</c:otherwise>
+						</c:choose>
+					</td>
 					<td>民族</td>
-					<td><e:select value="ocnation" name="qnation" header="true" />
+					<td>
+						<select name="qnation">
+							<option value="">==不限==</option>
+							<c:forEach var = "nation" items = "${ocnation }" >
+								<c:choose>
+									<c:when test = "${param.qnation == nation.value }">
+										<option value="${nation.value}" selected="selected">${nation.name}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${nation.value}">${nation.name}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</select>
 					</td>
 				</tr>
 				<tr>
 					<td>年龄</td>
-					<td><e:text name="qage" /></td>
+					<td><input type = "text" name="qage" value = "${param.qage }"/></td>
 					<td>地区</td>
-					<td><e:select value="occommunity" name="qcommunity"
-							header="true" /></td>
+					<td>
+						<select name="qcommunity">
+							<option value="">==不限==</option>
+							<c:forEach var = "community" items = "${occommunity }" >
+								<c:choose>
+									<c:when test = "${param.qcommunity == community.value }">
+										<option value="${community.value}" selected="selected">${community.name}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${community.value}">${community.name}</option>	
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</select>
+					</td>
 					<!--    <td>工资区间[B]</td>
        <td>
          <e:number step="0.01" name="bsal"/>
@@ -90,7 +134,7 @@
        </td>
         -->
 					<td>账号</td>
-					<td><e:text name="qaccount" /></td>
+					<td><input type = "text" name="qaccount" value = "${param.qaccount }"/></td>
 					<td></td>
 					<td></td>
 
@@ -154,11 +198,14 @@
 		<div class="button">
 			<table>
 				<tr>
-					<td><input type="submit" name="next" value="查询"
-						formaction="<%=path%>/a1011.htm"> <input type="submit"
-						value="添加" formaction="<%=path%>/a1010.htm?path=1"> <input
-						type="submit" id="delButton" name="next" value="删除"
-						formaction="<%=path%>/a1015.htm"></td>
+					<td>
+						<input type="submit" name="next" value="查询"
+						formaction="<%=path%>/a1011.htm"> 
+						<input type="submit" value="添加" 
+						formaction="<%=path%>/a1010.htm?path=1"> 
+						<input type="submit" id="delButton" name="next" value="删除"
+						formaction="<%=path%>/a1015.htm">
+					</td>
 				</tr>
 			</table>
 		</div>

@@ -49,19 +49,19 @@ ${msg2}
      <tr>
        <td width="15%">用户账号</td>
        <td width="35%">
-         <e:text name="maccount" defval="${ins.account }"/>
+         <input type = "text" name="maccount" value="${ins.account }"/>
        </td>
        <c:choose>
        <c:when test="${ins.account == null}">
        <td width="15%">用户密码</td>
        <td width="35%">                                
-         <e:text name="mupass" />
+         <input type = "text" name="mupass" />
          </td>
          </c:when>
          <c:otherwise>
        <td width="15%">用户密码（不改则不填）</td>
        <td width="35%">
-         <e:text name="mupass" />
+         <input type = "text" name="mupass" />
          </td>
          </c:otherwise>
        	
@@ -70,86 +70,129 @@ ${msg2}
       <tr>
        <td width="15%">医生姓名</td>
        <td width="35%">
-         <e:text name="mtruename" defval="${ins.truename }"/>
+         <input type = "text" name="mtruename" value="${ins.truename }"/>
        </td>
        <td width="15%">身份证</td>	
        <td width="35%">
-         <e:text name="midcard" defval="${ins.idcard }"/>
+         <input type = "text" name="midcard" value="${ins.idcard }"/>
        </td>	
      </tr>
 		 <tr>
 		 	<td>性别</td>
 		 	<td>
-		 	  <e:radio name="msex" value="男:1,女:2" defval="${empty param.uid?'1':ins.sex }"/>
+		 	  <c:choose>
+							<c:when test = "${empty param.uid or ins.sex == '1' }">
+								<input type = "radio" name="msex" value="1" checked="checked"/>男
+								<input type = "radio" name="msex" value="2" />女
+							</c:when>
+							<c:otherwise>
+								<input type = "radio" name="msex" value="1" />男
+								<input type = "radio" name="msex" value="2" checked="checked" />女
+							</c:otherwise>
+						</c:choose>
 		 	</td>
 		 	<td>年龄</td>
 		 	<td>
-		 	  <e:text name="mage" defval="${ins.age }"/>
+		 	  <input type = "text" name="mage" value="${ins.age }"/>
 		 	</td>
 		 </tr>
 		 <tr>
 		 	<td>民族</td>
-		 	<td>
-		 	  <e:select value="ocnation" name="mnation" defval="${ins.nation }"/>
-		 	</td>
+		 	
+		 	  <td>
+		 	  			<select name="mnation">
+							<c:forEach var = "nation" items = "${ocnation }" >
+								<c:choose>
+									<c:when test = "${ nation.value == ins.nation}">
+										<option value="${nation.value}" selected="selected">${nation.name}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${nation.value}" >${nation.name}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</select>
+					</td>
+		 	
 		 	<td>地区</td>
 		 	<td>
-		 	 <e:select value="occommunity" name="mcommunity" defval="${ins.community }"/>
+		 	 <select name="mcommunity">
+							<c:forEach var="community" items="${occommunity}">
+								<c:choose>
+									<c:when test = "${ community.value == ins.community}">
+										<option value="${community.value}" selected="selected">${community.name}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${community.value}" >${community.name}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</select>
 		 	</td>
 		 </tr>
 		 <tr>
 		 	<td>生日</td>
 		 	<td>
-		 	  <e:date name="mbirthday" defval="${ins.birthday }"/>
+		 	  <input type = "date" name="mbirthday" value="${ins.birthday }"/>
 		 	</td>
 		 	<td>手机号</td>
 		 	<td>
-		 	   <e:text name="mphonenumber" defval="${ins.phonenumber }"/>
+		 	   <input type = "text" name="mphonenumber" value="${ins.phonenumber }"/>
 		 	</td>
 		 </tr>
 		 <tr>
 		 	<td>居住地址</td>
 		 	<td>
-		 	   <e:text name="maddress" defval="${ins.address }"/>
+		 	   <input type = "text" name="maddress" value="${ins.address }"/>
 		 	</td>
 		 	<td>邮箱</td>
 		 	<td>
-		 	   <e:text name="mmail" defval="${ins.mail }"/>
+		 	   <input type = "text" name="mmail" value="${ins.mail }"/>
 		 	</td>
 		 </tr>
 		 <tr>
 		 <td> 医生等级</td>
 		 <td>
-		        <e:select value="oclevel" name="mlevel" defval="${ins.level }"/>
+		 <select name="mlevel">
+    	<c:forEach var="level" items="${oclevel}">
+								<c:choose>
+									<c:when test = "${ level.value == ins.level}">
+										<option value="${level.value}" selected="selected">${level.name}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${level.value}" >${level.name}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+    			</select>
 		 </td>
 		  <td> 从医时间</td>
 		 <td>
-		       <e:text name="mworkyear" defval="${ins.workyear }"/>
+		       <input type = "text" name="mworkyear" value="${ins.workyear }"/>
 		 </td>
 		 
 		 </tr>
 		  <tr>
 		 <td> 诊所地址</td>
 		 <td>
-		         <e:text name="mclinicaddress" defval="${ins.clinicaddress }"/>
+		         <input type = "text" name="mclinicaddress" value="${ins.clinicaddress }"/>
 		 </td>
 		  <td> 诊所名字</td>
 		 <td>
-		       <e:text name="mclinicname" defval="${ins.clinicname }"/>
+		       <input type = "text" name="mclinicname" value="${ins.clinicname }"/>
 		 </td>
 		 
 		 </tr>
 		 <tr>
 		 	<td>备注</td>
 		 	<td colspan="3">
-		 	  <e:textarea rows="3" cols="122" name="mmemo" defval="${ins.memo }"/>
-		 	</td>
+		 	  <textarea rows="5" cols="122" name="mmemo">${ins.memo }</textarea></td>		 	
 		 </tr>
 		 <tr>
 		 	<td>医生描述</td>
 		 	<td colspan="3">
-		 	  <e:textarea rows="5" cols="122" name="mdescription" defval="${ins.description }"/>
-		 	</td>
+		 	  <textarea rows="5" cols="122" name="mdescription"> ${ins.description } </textarea></td>
+		 	
 		 </tr>
 		 <tr class="edit_button">
 	       <td colspan="4">
@@ -167,15 +210,15 @@ ${msg2}
    </table>
  </div>
   
- <input type="hidden" name="uid" value="${param.uid }">
- <e:hidden name="qename"/>
- <e:hidden name="qidcard"/>
- <e:hidden name="qsex"/>
- <e:hidden name="qnation"/>
- <e:hidden name="qage"/>
- <e:hidden name="qcommunity"/>
- <e:hidden name="qaccount"/>
- <e:hidden name="query"/>
+ 		<input type = "hidden" name="uid" value="${param.uid }">
+		<input type = "hidden" name = "qname" value = "${param.qname }" >
+		<input type = "hidden" name = "qidcard" value = "${param.qidcard }" >
+		<input type = "hidden" name = "qsex" value = "${param.qsex }" >
+		<input type = "hidden" name = "qnation" value = "${param.qnation }" >
+		<input type = "hidden" name = "qage" value = "${param.qage }" >
+		<input type = "hidden" name = "qcommunity" value = "${param.qcommunity }" >
+		<input type = "hidden" name = "qaccount" value = "${param.qaccount }" >
+ 		<input type = "hidden" name = "query" value="${param.query }"/>
 
  
 </form>

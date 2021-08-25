@@ -80,13 +80,13 @@ ${msg }
 		  <tr>
 		 	<td>医生嘱咐</td>
 		 	<td colspan="3">
-		 	  <e:textarea rows="3" cols="122" name="mdocsuggestion" defval="${ins.docsuggestion }"/>
+		 	  <textarea rows="3" cols="122" name="mdocsuggestion" >${ins.docsuggestion }</textarea>
 		 	</td>
 		 </tr>
 		 <tr>
 		 	<td>开药信息</td>
 		 	<td colspan="3">
-		 	  <e:textarea rows="5" cols="122" name="mdrugmsg" defval="${ins.drugmsg }"/>
+		 	  <textarea rows="5" cols="122" name="mdrugmsg">${ins.drugmsg }</textarea>
 		 	</td>
 		 </tr>
 		 <tr class="edit_button">

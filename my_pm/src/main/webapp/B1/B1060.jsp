@@ -69,31 +69,43 @@ ${msg }
     <tr>
        <td>挂号单号</td>
        <td> 
-          <e:text name="qoid" />
+          <input type = "text" name="qoid" />
        </td>
        <td>患者姓名</td>
-       <td><e:text name="qtruename" /></td>
+       <td><input type = "text" name="qtruename" /></td>
        <td>患者性别</td>
        <td>
-          <e:radio name="qsex" value="男:1,女:2,不限:''" defval=""/>
+          <input type = "radio" name="qsex" value="1"  />男
+		  <input type = "radio" name="qsex" value="2" />女
+		  <input type = "radio" name="qsex" value="" />不限
        </td>
        <td>民族</td>
        <td>
-         <e:select value="ocnation" name="qnation" header="true"/>
+         <select name="qnation">
+				<option value="">==不限==</option>
+				<c:forEach var = "nation" items = "${ocnation }" >
+				<option value="${nation.value}" >${nation.name}</option>									
+				</c:forEach>
+			</select>			
        </td>
     </tr>
     <tr>
        <td>地区</td>
        <td>
-        <e:select value="occommunity" name="qcommunity" header="true" />
+        <select name="qcommunity">
+			<option value="">==不限==</option>
+			<c:forEach var = "community" items = "${occommunity }" >
+			<option value="${community.value}">${community.name}</option>
+			</c:forEach>
+				</select>
        </td>
        <td>挂号时间段[B]</td>
        <td>
-         <e:date name="btime"/>
+         <input type = "date" name="btime"/>
        </td>
        <td>挂号时间段[E]</td>
        <td>
-         <e:date name="etime"/>
+         <input type = "date" name="etime"/>
        </td>
        <td></td>
        <td></td>

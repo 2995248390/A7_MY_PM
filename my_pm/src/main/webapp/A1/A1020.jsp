@@ -48,32 +48,46 @@ ${msg}
     <tr>
        <td>医生编号</td>
        <td> 
-          <e:text name="qdid" />
+          <input type = "text" name="qdid" />
        </td>
        <td>姓名</td>
-       <td><e:text name="qtruename" /></td>
+       <td><input type = "text" name="qtruename" /></td>
        <td>性别</td>
        <td>
-          <e:radio name="qsex" value="男:1,女:2,不限:''" defval=""/>
+          <input type = "radio" name="qsex" value="1" />男
+		  <input type = "radio" name="qsex" value="2" />女
+		  <input type = "radio" name="qsex" value="" />不限
        </td>
        <td>状态</td>
        <td>
-       <e:radio name="qdocstate" value="开放:1,关闭:2" defval=""/>
-         
+       <input type="radio" name="qdocstate" value="1" />开放
+       <input type="radio" name="qdocstate" value="2" />关闭
+       <input type="radio" name="qdocstate" value="3" />删除
+       <input type="radio" name="qdocstate" value="" />不限  
        </td>
     </tr>
     <tr>
        <td>所在地区</td>
        <td>
-         <e:select value="occommunity" name="qcommunity" header="true" />
+         <select name="qcommunity">
+         		<option value="">==不限==</option>
+				<c:forEach var="community" items="${occommunity}">									
+				<option value="${community.value}" >${community.name}</option>									
+				</c:forEach>
+				</select>
        </td>
     <td>诊所名字</td>
     <td>
-    <e:select value="occlinicname" name="qclinicname" header="true" />
+    <input type = "text" name="qclinicname"/>
     </td>   
      <td>医生等级</td>     
     <td>
-    <e:select value="oclevel" name="qlevel" header="true" />
+    <select name="qlevel">
+    	<option value="">==不限==</option>
+    	<c:forEach var="level" items="${oclevel}">									
+				<option value="${level.value}" >${level.name}</option>									
+				</c:forEach>
+    </select>
     </td>
     <td></td>
     <td></td>
@@ -146,6 +160,9 @@ ${msg}
     </tr>
   </table>
 </div>
+
+		
+		
 </form>
 </body>
 </html>

@@ -35,6 +35,7 @@ public class B1012Servlet extends BaseServlet {
 		
 		request.setAttribute("ocnation", Tools.getOptions("nation"));
 		request.setAttribute("occommunity", Tools.getOptions("community"));
+		request.setAttribute("oclevel", Tools.getOptions("level"));
 		
 		
 		return "/B1/B101"+baseName+".jsp";

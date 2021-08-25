@@ -33,7 +33,6 @@ public class B1010Servlet extends BaseServlet {
 		request.setAttribute("ocnation", Tools.getOptions("nation"));
 		request.setAttribute("occommunity", Tools.getOptions("community"));
 		request.setAttribute("oclevel", Tools.getOptions("level"));
-		System.out.println(docInfo);
 		B1010ServicesImpl services=new B1010ServicesImpl(docInfo);
 		Map<String, String> ins = services.querDoc(); 
 		request.setAttribute("ins",ins);	

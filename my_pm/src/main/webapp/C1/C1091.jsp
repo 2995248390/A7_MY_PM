@@ -11,7 +11,7 @@
         body,
         #container {
             width: 100%;
-            height: 97%;
+            height: 100%;
         }
         #panel {
             position: fixed;
@@ -41,10 +41,6 @@
 <body>
 <div id="container"></div>
 <div id="panel"></div>
-<div>
-	<input type="submit" value="·µ»Ø"
-		formaction="<%=path%>/information.jsp" >
-</div>
 <script type="text/javascript">
     var map = new AMap.Map("container", {
         resizeEnable: true,

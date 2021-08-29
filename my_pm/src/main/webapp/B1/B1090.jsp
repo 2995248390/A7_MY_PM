@@ -62,7 +62,8 @@
       
        <td>ÐÕÃû</td>
        <td>
-          <e:text name="addusername"  />
+          
+          <input type="text" name="addusername"  id="addusername">
        </td>
        </tr>
        
@@ -95,7 +96,7 @@
        <tr>
        <td>Âö²«</td>
        <td>
-         <input type="text" name="addpulse"  onkeypress="return is_number(event)">
+         <input type="number" name="addpulse"  ">
        </td>
        <td></td>
        <td></td>

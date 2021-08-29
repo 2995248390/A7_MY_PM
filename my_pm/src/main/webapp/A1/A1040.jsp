@@ -1,5 +1,4 @@
 <%@ page language="java" pageEncoding="GBK"%>
-<%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%String path=request.getContextPath(); %>
@@ -48,55 +47,79 @@
 <body onload="onNext1()">
 <br>
 <br>
-<div id="msg" class="msg">
 
- ${msg }
-</div >
+<div id="msg" class="msg">  ${msg }</div >
 
 <form id="myform" action="" method="post">
 
-<!-- 查询条件 -->
+<!-- 1.查询条件 -->
 <div class="query" >
   <table>
+    <!-- part1，表头显示 -->
     <caption>
               体检档案管理
        <hr>      
     </caption>
+    
     <tr class="title">
        <td colspan="8">查询条件</td>
     </tr>
+    
     <!-- 
-             查询条件的控件命名:
-       对于区间条件: b+字段名  做开始区间   e+字段名  结束区间
-       对于非区间查询条件 :  q+字段名   
+     part2，查询条件的控件命名:
+                       对于区间条件: b+字段名  做开始区间   e+字段名  结束区间
+                       对于非区间查询条件 :  q+字段名   
      -->
     <tr>
        <td>档案流水号</td>
        <td> 
-          <e:text  name="qaino" />
+          <input type="text" name="qaino"  id="qaino">
        </td>
+       
        <td>用户编号</td>
-       <td><e:text name="qpno" /></td>
+       <td>
+          <input type="text" name="qpno"  id="qpno">
+       </td>
+       
        <td>性别</td>
        <td>
-         <e:radio name="qsex" value="男:1,女:2,不限:''" defval=""/>
+         <input type = "radio" name="qsex" value="1" />男
+		  <input type = "radio" name="qsex" value="2" />女
+		  <input type = "radio" name="qsex" value="" />不限
        </td>
+       
        <td>姓名</td>
-       <td><e:text name="qpname" /></td>
+       <td>
+          <input type="text" name="qpname"  id="qpname">
+       </td>
     </tr>
     <tr>
       
        <td>民族</td>
        <td>
-          <e:select name="qnation" value="ocnation" header="true" />
+          <select  name="qnation" >
+       		<option value="">--不限--</option>
+       		
+       		<c:forEach var="com" items="${ocnation }" >
+       		<c:choose>
+       		<c:when test="${ocnation==com.value }">
+       		<option value="${com.value }" selected="selected">${com.name }</option>
+       		</c:when>
+       		<c:otherwise>
+       		<option value="${com.value }" >${com.name }</option>
+       		</c:otherwise>
+       		</c:choose>
+      		</c:forEach>
+       </select>
+          
        </td>
        <td>起始录入时间</td>
        <td>
-           <e:date name="binputdate"  />
+           <input type="date" name="binputdate"  id="binputdate">
        </td>
        <td>截止录入时间</td>
        <td>
-           <e:date name="einputdate"  />
+          <input type="date" name="einputdate"  id="einputdate">
        </td>
          <td></td>
          <td></td>
@@ -109,6 +132,8 @@
 
 <div  class="data">
   <table id="dataTable">
+  
+    <!-- 表头设计 -->
     <tr class="title">
        <td></td>
        <td>序号</td>
@@ -124,6 +149,8 @@
        <td>脉搏</td>
        <td></td>
     </tr>
+    
+    <!-- 结果显示在表头下 -->
     <c:choose>
        <c:when test="${rows!=null }">
           <c:forEach items="${rows }" var="ins" varStatus="vs">
@@ -158,11 +185,15 @@
      </c:choose>
    
   </table>
+  
+    <!-- 对于结果显示情况的控件 -->
    <input type="checkbox" name="1" id="contorlbox1" onclick="chooseall()" >全选
    <br>
-  ${pageController }
+   ${pageController }
+   
 </div>
-<!-- 功能按钮 -->
+
+  <!-- 功能按钮 -->
 <div class="button">
   <table>
     <tr>
@@ -174,6 +205,7 @@
     </tr>
   </table>
 </div>
+
 </form>
 </body>
 </html>

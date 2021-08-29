@@ -14,8 +14,6 @@
 </head>
 <body>
 <br>
-
- 
  ${msg }
 <br>
 <form action="" height=""  width="" method="post">
@@ -31,14 +29,14 @@
     <tr  width="50%">
      <td>资讯编号</td>
      <td >
-       <e:text name="upiid" defval="${rows.iid }"  />
+       <input type="text" name="upiid"  id="upiid" value="${rows.iid }">
      </td>
     </tr>
    
     <tr  width="50%">
      <td align="center">内容简介</td>
      <td >
-         <e:textarea rows="3" cols="80" name="uptext" defval="${rows.text }" />  
+         <textarea rows="3"  cols="80" name="uptext"  id="uptext">${rows.text}</textarea> 
      </td>
     </tr>
     
@@ -47,21 +45,21 @@
                 页面请求
      </td>
      <td>
-       <e:textarea rows="3" cols="80" name="upurl" defval="${rows.url }" />
+       <textarea rows="3"  cols="80" name="upurl"  id="upurl">${rows.url }</textarea>
      </td>
     </tr>
     
     <tr>
      <td>备注</td>
      <td>
-       <e:textarea rows="3" cols="80" name="upmemo" defval="${rows.memo }" />
+       <textarea rows="3"  cols="80" name="upmemo"  id="upmemo">${rows.memo }</textarea>
      </td>
     </tr>
      
     <tr>
      <td>状态</td>
       <td>
-       <e:radio name="upstate" value="可见:1,不可见:2" defval="${rows.state }" />
+        <input type="radio" name="upstate"  id="upstate" value="1" checked="checked">可见<input type="radio" name="upstate"  id="upstate" value="2">${rows.state }
      </td>
     </tr>
   </table>
@@ -77,8 +75,6 @@
     </tr>
   </table>
 </div> 
-
-
 </form>
 </body>
 </html>

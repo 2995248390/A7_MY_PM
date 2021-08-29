@@ -7,8 +7,6 @@
 <head>
 <title>Insert title here</title>
 <style type="text/css">@IMPORT url("<%=path%>/css/wangcss/style.css");</style>
-
-
  <script type="text/javascript" src="<%=path%>/js/tools.js"></script>
 
 </head>
@@ -54,8 +52,6 @@
     </tr>
   </table>
 </div> 
-  
    </form>
- 
 </body>
 </html>

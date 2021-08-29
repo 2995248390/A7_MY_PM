@@ -50,8 +50,6 @@
   }
   </script>
 </head>
-
-
 <body onload="onNext1()">
    
  <br>
@@ -75,25 +73,23 @@
     </tr>
     <!-- 
              查询条件的控件命名
-     -->
-     
-    <tr>
-      
+     -->   
+    <tr>  
        <td>资讯流水号</td>
        <td> 
-          <e:text  name="qinno" />
+          <input type="text" name="qinno"  id="qinno">
        </td>
        
        <td>内容简介</td>
-       <td><e:text name="qinsyn" /></td>
+       <td><input type="text" name="qinsyn"  id="qinsyn"></td>
        
        <td>页面请求</td>
       
-       <td><e:text name="qinurl" /></td>
+       <td><input type="text" name="qinurl"  id="qinurl"></td>
        
        <td>状态</td>
        <td>
-      <e:radio name="qinstate" value="可见:1,不可见:2" defval="1"/>
+      <input type="radio" name="qinstate"  id="qinstate" value="1" checked="checked">可见<input type="radio" name="qinstate"  id="qinstate" value="2">不可见
        </td>
        
     </tr>
@@ -132,7 +128,7 @@
                ${ins.text } 
             </td>
              <td> 
-                <a href="javascript:onEdit('${ins.iid}')">
+                <a href="#" onclick="onEdit('${ins.iid}')">
 		           <img alt="" src="<%=path%>/img/edit.png">
 		        </a>
              <a href="${ins.url }">${ins.url }</a>
@@ -141,8 +137,10 @@
             <td></td>
            
             </tr>
+             
+          
          </c:forEach>
-          <script>
+         <script>
               newRows(10- ${fn:length(rows)},6);
           </script>
        </c:when>

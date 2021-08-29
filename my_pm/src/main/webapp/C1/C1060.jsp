@@ -31,8 +31,6 @@
 <form>
 <div  class="data">
   <table id="dataTable">
-  <caption>ÃÂºÏ–≈œ¢
-  </caption>
     <tr class="title">
        <td></td>
        <td>–Ú∫≈</td>

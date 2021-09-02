@@ -33,9 +33,9 @@ hr {
 }
 
 table {
-	width: 70%;
+	width: 50%;
 	border-collapse: collapse;
-	margin: 0 auto;
+	margin: auto auto;
 }
 
 td {
@@ -64,17 +64,41 @@ tr td:nth-child(even) {
 .btn {
 	text-align: center;
 }
+.userimg{
+	position:absolute;
+	margin-top:0px;
+	margin-left:50px;
+	width: 100px;
+	height:100px;
+	border-radius:50px;
+	overflow:hidden;
+}
+.iii{
+margin-right:20px;
+font-size:20px;
+}
+.name{
+width:80px;
+padding-left:55px;
+}
 </style>
 </head>
 <body>
+<br>
+<br>
+<br>
+<br>
 	<form id="myform" action="" method="post">
+	<img class="userimg" src="../userimg.htm" align="absmiddle">
 		<table>
 			<caption>
-				个人中心
+				<div class="iii">个人中心</div>
+				
 				<hr>
 			</caption>
+			
 			<tr>
-				<td>姓名:</td>
+				<td class="name">姓名:</td>
 				<td><c:choose>
 						<c:when test="${empty param.type}">
     							${userinfo.truename}

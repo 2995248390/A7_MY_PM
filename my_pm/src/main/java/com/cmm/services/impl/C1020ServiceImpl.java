@@ -224,7 +224,9 @@ public class C1020ServiceImpl extends JdbcServicesSupport {
 		String appiontment = this.getString("appiontment");
 		String uid = this.getString("userid");
 		Integer did = this.getInteger("did");
+		System.out.println("appiontment1="+appiontment);
 		if(appiontment== null || "".equals(appiontment)) {
+			System.out.println("appiontment2="+appiontment);
 			return null;
 		}
 		//插入挂号挂号单信息
@@ -239,6 +241,7 @@ public class C1020ServiceImpl extends JdbcServicesSupport {
 			appiontment,
 			this.getOnum()
 		};
+		System.out.println("params="+params.toString());
 		//如果插入成功进行查询
 		if(executeUpdate(sql.toString(), params)>0) {
 			//查询到订单相关的用户信息和医生信息

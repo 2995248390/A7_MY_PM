@@ -52,7 +52,7 @@ padding:15px 15px;
 								 <div class="layui-form-item">
 								    	<label class="layui-form-label" style="font-size:20px;font-weight:bold; ">时间:</label>
 								    <div class="layui-input-block">
-								      <select name="nation" lay-filter="aihao">
+								      <select name="appiontment" lay-filter="aihao">
 								        	<option selected="selected" value="">==选择时间==</option>
 										<c:forEach var="time" items="${timeList }">
 											<option value="${time.appiontment}">${time.getTime}</option>
